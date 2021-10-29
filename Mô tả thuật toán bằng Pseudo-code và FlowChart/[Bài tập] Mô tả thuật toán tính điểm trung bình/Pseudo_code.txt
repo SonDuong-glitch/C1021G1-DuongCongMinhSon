@@ -1,0 +1,5 @@
+Begin
+Input Toan , Ly , Hoa;
+C = ( Toan + Ly + Hoa )/3
+Display C;
+Endl

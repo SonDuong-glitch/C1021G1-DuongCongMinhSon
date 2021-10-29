@@ -1,0 +1,8 @@
+Begin
+Input A random 0-9;
+Input B;
+If (A == B) 
+Display “Đúng”;
+If (A != B) 
+Display “Sai”
+End;

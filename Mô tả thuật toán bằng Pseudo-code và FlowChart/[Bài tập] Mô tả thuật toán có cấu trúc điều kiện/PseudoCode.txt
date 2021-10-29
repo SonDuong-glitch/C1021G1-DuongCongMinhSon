@@ -1,0 +1,12 @@
+Begin
+var Diem ;
+If(Diem>=75){
+Display: Loại A
+else if (DIem < 75 && Diem <= 60){
+Display: Loại B
+}else if(Diem <45 && Diem <= 35){
+Display Loại C }
+else
+Display Loại D
+}
+End

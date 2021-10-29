@@ -1,0 +1,9 @@
+Begin
+Input A,B,C
+If(A>B && A>C)
+Display A la so lon nhat
+If (B>C && B>A)
+Display B la so lon nhat
+else
+Display C la so lon nhat
+End
