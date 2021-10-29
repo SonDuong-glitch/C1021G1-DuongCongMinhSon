@@ -1,9 +1,11 @@
 Begin 
-Nhap N ; Nhap A1-...-An
-Max = A1; n = 2;
-if (Max > An)
-max = an
-display so lon nhat là +Max;
-else 
-n = n + 1;
-
+  INPUT N ;
+  INPUT A1-...-An
+  Max = A1;
+  i = 2;
+  While (Max > Ai)
+  do
+    Max = Ai
+    i++
+  END DO
+END
