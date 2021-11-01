@@ -3,7 +3,7 @@ Begin
   INPUT A1-...-An
   Max = A1;
   i = 2;
-  While (Max > Ai)
+  While (Max < Ai)
   do
     Max = Ai
     i++
