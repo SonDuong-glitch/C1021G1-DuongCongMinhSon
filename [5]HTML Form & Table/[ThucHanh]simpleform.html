@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oder Form</title>
+</head>
+<body>
+<form method="get" action="simpleform.html">
+  <fieldset>
+    <h2>Oder Form</h2>
+        <p>What would you like to buy?</p>
+    <select>
+        <option value=" ">Cháo</option>
+        <option>Cơm</option>
+        <option>Phở</option>
+        <option>Bún</option>
+    </select>
+      <p>How many would like to order</p>
+      <input type="radio" name = "rd"/> 1<br/>
+      <input type="radio" name = "rd"/> 2<br/>
+      <input type="radio" name = "rd"/> 3<br/>
+      <input type="radio" name = "rd"/> 4<br/>
+      <input type="radio" name = "rd"/> 5<br/>
+
+      <p>Name <span style="color: red">*</span> </p>
+      <input type = "text" name="firstname" placeholder="FirstName" size="15"/>
+      <input type = "text" name="lastname" placeholder="LastName" size="15"/>
+      <p>Email</p>
+      <input type = "text" name="email" size="35"/>
+      <p>Phone Number</p>
+      <input type = "number" name="phone1" size="5"/> -
+      <input type = "number" name="phone2" size="5"/> -
+      <input type = "number" name="phone3" size="5"/>
+      <p><input type = "button" name="btSubmit" value="Submit"/></p>
+      <p><input type = "reset" name="btReset" value="Reset"/></p>
+  </fieldset>
+<style>
+    .wuffo {
+        font-family: "Lucida Grande","Lucida Sans Unicode", Tahoma, sans-serif;
+    }
+</style>
+</form>
+</body>
+</html>
