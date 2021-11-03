@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BaiTap1_BienDuLieuToanTu</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</head>
+<body>
+    <form action="google.com" method="post">
+    <table border="1" style="text-align: center ; background: darkgoldenrod ; border-collapse: collapse">
+        <tr>
+            <th> Môn </th>
+            <th> Điểm</th>
+        </tr>
+        <tr>
+            <td> Vật lý </td>
+            <td> <input type="text" name="VatLy" id="VatLy" placeholder="Nhập điểm Vật Lý" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nhập điểm Vật lý'"> </td>
+        </tr>
+        <tr>
+            <td> Hóa Học </td>
+            <td> <input type="text" name="HoaHoc" id="HoaHoc" placeholder="Nhập điểm Hóa Học" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nhập điểm Hóa Học'"> </td>
+        </tr>
+        </tr>
+        <tr>x
+            <td> Sinh Học </td>
+            <td> <input type="text" name="SinhHoc" id="SinhHoc" placeholder="Nhập điểm Sinh Học" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nhập điểm Sinh Học'"> </td>
+        </tr>
+        <tr>
+            <td> Diểm trung bình </td>
+            <td><input type="text" value="" name = "dtb" id="dtb"/></td>
+        </tr>
+        <tr >
+            <td>
+                <input type="button" value="TinhDiem" name="btnTinhDiem" id="btnTinhDiem" onclick="dtb.value= Diemtrungbinh()">
+            </td>
+            <td>
+                <button name="rs" value="rs" type="reset">Restart</button>
+            </td>
+        </tr>
+
+    </table>
+    </form>
+<script>
+    function Diemtrungbinh() {
+        let VatLy = document.getElementById('VatLy');
+        let HoaHoc = document.getElementById('HoaHoc');
+        let SinhHoc = document.getElementById('SinhHoc');
+        if(VatLy.value == "" && SinhHoc.value == "" && HoaHoc.value == "" ){
+            alert("Vui Lòng nhập giá trị đầy đủ");
+        }else if(VatLy.value == "" ){
+            alert("Bạn nhập thiếu giá trị của Vật Lý")
+        }else if(SinhHoc.value == "" ){
+            alert("Bạn nhập thiếu giá trị của Sinh Học")
+        }else if(HoaHoc.value == "" ){
+            alert("Bạn nhập thiếu giá trị của Hóa Học")
+        }else if(isNaN(VatLy.value) && isNaN(SinhHoc.value) == "" && isNaN(HoaHoc.value) == "" ){
+            alert("kí tự bạn nhập không phải là số")
+        }else if(isNaN(VatLy.value)){
+            alert("Giá trị của Điểm Vật lý k phải là số")
+        }else if(isNaN(SinhHoc.value)){
+            alert("Giá trị của Điểm Sinh Học k phải là số")
+        }else if(isNaN(HoaHoc.value)){
+            alert("Giá trị của Điểm Hóa học k phải là số")
+        }
+        let DTB = (parseInt(VatLy.value)+ parseInt(HoaHoc.value) + parseInt(SinhHoc.value))/3
+        return DTB;
+    }
+</script>
+</body>
+</html>

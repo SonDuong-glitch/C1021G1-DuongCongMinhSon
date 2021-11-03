@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ChuVivaDienTichHinhTron</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td colspan="2"><h1>Tính chu vi và diện tích hình tròn</h1></td>
+        </tr>
+        <tr>
+            <td>Nhập bán kinh: </td>
+            <td> <input type="text" name="" id="banKinh" placeholder="Nhập giá trị" onfocus="this.placeholder = ' ' " onblur="this.placeholder='Nhập giá trị'"></td>
+        </tr>
+        <tr>
+            <td>Đường kính</td>
+            <td><input type="text" value="" name="dk" id="dk"></td>
+        </tr>
+        <tr>
+            <td>Chu Vi</td>
+            <td><input type="text" value="" name="chuVi" id="cv"></td>
+        </tr>
+        <tr>
+            <td>Bán kính</td>
+            <td><input type="text" value="" name="dienTich" id="dt"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="button" value="Xác nhận" name="bt" id="bt" onclick="cv.value = chuvi() ; dt.value= dientich();dk.value = duongkinh()">
+            </td>
+        </tr>
+    </table>
+    <script>
+        let pi = Math.PI;
+        let R = document.getElementById('banKinh');
+        function duongkinh() {
+            let d = parseInt(R.value)*2;
+            return d;
+        }
+       function chuvi() {
+           let d = parseInt(R.value)*2;
+           let P = d*pi;
+           return P;
+       }
+       function dientich() {
+           let S = parseInt(R.value)*pi;
+           return S;
+       }
+    </script>
+</body>
+</html>
