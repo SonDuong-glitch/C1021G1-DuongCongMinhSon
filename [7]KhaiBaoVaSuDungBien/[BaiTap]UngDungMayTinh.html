@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập ứng dụng máy tính</title>
+</head>
+<body>
+    <form>
+        <table>
+            <tr>
+                <td colspan="2">
+                    <input type="text" name="So1" value=" " id="So1">
+                </td>
+                <td colspan="2">
+                    <input type="text" name="So2" value=" " id="So2">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" name="TinhToan" id="Add" value="Addition(+)" onclick="KQ.value = add()">
+                </td>
+                <td>
+                    <input type="button" name="TinhToan" id="Sub" value="Subtraction(-)" onclick="KQ.value = sub()" >
+                </td>
+                <td>
+                    <input type="button" name="TinhToan" id="Multi" value="Multiplication(*)" onclick="KQ.value = mul()" >
+                </td>
+                <td>
+                    <input type="button" name="TinhToan" id="Div" value="Division(/) " onclick="KQ.value = div()" >
+                </td>
+            </tr>
+            <tr>
+                <td>Kết Quả</td>
+                <td>
+                    <input type="text" name="KQ" value="" id="KQ" disabled>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        function add()
+        {
+            var x = parseFloat(document.getElementById('So1').value);
+            var y = parseFloat(document.getElementById('So2').value);
+            var kq = x+y;
+            return kq;
+        }
+
+        function sub()
+        {
+            var x = parseFloat(document.getElementById('So1').value);
+            var y = parseFloat(document.getElementById('So2').value);
+            var kq = x-y;
+            return kq;
+        }
+
+        function mul()
+        {
+            var x = parseFloat(document.getElementById('So1').value);
+            var y = parseFloat(document.getElementById('So2').value);
+            var kq = x*y;
+            return kq;
+        }
+
+        function div()
+        {
+            var x = parseFloat(document.getElementById('So1').value);
+            var y = parseFloat(document.getElementById('So2').value);
+            var kq = x/y;
+            return kq;
+        }
+    </script>
+</body>
+</html>

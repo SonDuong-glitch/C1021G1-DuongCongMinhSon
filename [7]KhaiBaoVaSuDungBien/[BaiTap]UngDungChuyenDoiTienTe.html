@@ -5,21 +5,53 @@
     <title>Ứng dụng chuyển đổi tiền tệ</title>
 </head>
 <body>
-    <tr>
-        <th>
-            Amount
-        </th>
-        <th>
-            From Currency
-        </th>
-        <th>
-            To Currency
-        </th>
-    </tr>
+<table border="1">
     <tr>
         <td>
-            <input type="number"></input>
+            Amount
+        </td>
+        <td>
+            From Currency
+        </td>
+        <td>
+            To Currency
         </td>
     </tr>
+    <tr>
+        <td><input type="text" value=" " name="amount" id="amount"></td>
+        <td>
+            <select id="from">
+                <option name="FrCurrency" value="VietNam" >VietNam</option>
+                <option name="FrCurrency" value="USD" >USA</option>
+            </select>
+        </td>
+        <td>
+            <select id="to">
+                <option name="ToCurrency" value="USD" >USA</option>
+                <option name="ToCurrency" value="VietNam" >VietNam</option>
+            </select>
+        </td>
+        <tr>
+        <td colspan="3"><input type="button" name="Convert" value="Convert" id="Covert" onclick="result.value =ChuyenDoi()"></td>
+        </tr>
+    <tr>
+        <td>Result</td>
+        <td colspan="2"> <input type="text" name="Result" value="" id="result"></td>
+    </tr>
+</table>
+<script>
+    function ChuyenDoi() {
+        let a = parseInt(document.getElementById("amount").value);
+        let b = document.getElementById("from");
+        let c = document.getElementById("to");
+        let Tranfer;
+        if( b.value == "USD" && c.value == "VietNam"){
+            Tranfer = a*23000
+        }else if (b.value == "VietNam" && c.value == "USD"){
+            Tranfer = a/23000
+        }
+        return Tranfer;
+    }
+</script>
 </body>
 </html>
