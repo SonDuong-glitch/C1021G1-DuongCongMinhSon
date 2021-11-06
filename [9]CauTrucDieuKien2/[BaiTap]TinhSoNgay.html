@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <table border="1">
+    <tr>
+        <td colspan="2">
+            <caption>Kiểm Tra Tháng Năm</caption>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Nhập Tháng :
+        </td>
+        <td>
+            <input type="text" id="Month" name="Month">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Nhập Năm:
+        </td>
+        <td>
+            <input type="text" id="Year" name="Year"> 
+        </td>
+    </tr>
+    <tr>
+        <td>
+            
+        </td> 
+        <td>
+            <input type="text" value=" " id="KetQua" disabled>
+        </td>    
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: center;">
+            <input type="button" value="Xác Nhân" id="Confirm" onclick="KetQua.value = TinhSoNgay()" >
+        </td>    
+    </tr>
+   </table>
+    <script>
+        function TinhSoNgay(){
+            let Month = (parseInt(document.getElementById("Month").value));
+            let Year = (parseInt(document.getElementById("Year").value));
+            if(Month>=1 && Month <= 12){
+                switch(Month){
+                    case 4:
+                    case 6:
+                    case 9:
+                    case 11:
+                        return " Tháng "+Month+" có 30 ngày";
+                        break;
+                    case 2:
+                        if((Year%4 == 0 && Year/100 != 0)||(Year%400 == 0)){
+                            return "Tháng "+Month+" Năm"+Year+" có 29 ngày";
+                        }else{
+                            return "Tháng"+Month+" Năm"+Year+" có 28 ngày";
+                        }
+                        break;
+                    default: 
+                    return "Tháng "+Month+" Năm " +Year+" có 31 ngày"
+               }
+            }else{
+                return false;
+            }
+            }
+    </script>
+</body>
+</html>
