@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let soDienSuDung = parseInt(prompt("Nhập số điện bạn sử dụng:"))
+        let tamtinh;
+        if ( soDienSuDung > 0 && soDienSuDung <= 50){
+            tamtinh = soDienSuDung*1678
+            thanhTien = (tamtinh + tamtinh/10)
+            alert("Thành tiền: " +thanhTien)
+        }else if(soDienSuDung > 50 && soDienSuDung <= 100){
+            tamtinh = soDienSuDung*1734
+            thanhTien = (tamtinh + tamtinh/10)
+            alert("Thành tiền: " +thanhTien)
+        }else if(soDienSuDung > 100 && soDienSuDung <= 200){
+            tamtinh = soDienSuDung*2014
+            thanhTien = (tamtinh + tamtinh/10)
+            alert("Thành tiền: " +thanhTien)
+        }else if(soDienSuDung > 200 && soDienSuDung <= 300){
+            tamtinh = soDienSuDung*2536
+            thanhTien = (tamtinh + tamtinh/10)
+            alert("Thành tiền: " +thanhTien)
+        }else if(soDienSuDung > 300 && soDienSuDung <= 400){
+            tamtinh = soDienSuDung*2834
+            thanhTien = (tamtinh + tamtinh/10)
+            alert("Thành tiền: " +thanhTien)
+        }else{
+            tamtinh = soDienSuDung*2927
+            thanhTien = (tamtinh + tamtinh/10)
+            alert("Thành tiền: " +thanhTien)
+        }
+    </script>
+</body>
+</html>
