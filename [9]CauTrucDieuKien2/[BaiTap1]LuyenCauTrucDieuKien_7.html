@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let soPhut = parseInt(prompt("Nhap số phút gọi:"))
+        const chiPhiCoDinh = 25000
+        let giaCUoc;
+        let tong;
+        if(soPhut>200){
+            giaCUoc=(soPhut-200)*200+150*400+50*600;
+             tong=0.01*giaCUoc+chiPhiCoDinh;
+            alert(tong +"VNĐ");
+        }
+        else if(soPhut>50){
+            giaCUoc=(soPhut-50)*400+50*600;
+            tong=0.01*giaCUoc+chiPhiCoDinh;
+            alert(tong +"VNĐ");
+        }
+        else{
+            giaCUoc=soPhut*600;
+            tong=0.01*giaCUoc+chiPhiCoDinh
+            alert(tong +"VNĐ");
+        }
+    </script>
+</body>
+</html>

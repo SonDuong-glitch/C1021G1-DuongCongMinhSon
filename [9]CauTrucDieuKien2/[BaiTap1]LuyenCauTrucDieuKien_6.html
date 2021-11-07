@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let sanPham = parseInt(prompt("Nhập số sản phẩm"))
+        let hoaHong;
+        if( sanPham <= 50 && sanPham > 0){
+            hoaHong = sanPham*30000;
+            alert("Số tiền hoa hồng nhận được là: " + hoaHong +" VNĐ")
+        }else if(sanPham>50 && sanPham <= 100){
+            hoaHong = sanPham*45000
+            alert("Số tiền hoa hồng nhận được là: " + hoaHong +" VNĐ")
+        }else{
+            hoaHong = sanPham*55000
+            alert("Số tiền hoa hồng nhận được là: " + hoaHong +" VNĐ")
+        }
+    </script>
+</body>
+</html>
