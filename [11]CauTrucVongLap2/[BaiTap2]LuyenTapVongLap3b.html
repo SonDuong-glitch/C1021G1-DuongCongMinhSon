@@ -8,16 +8,14 @@
 </head>
 <body>
     <script>
-        let dem = null;
-        let a = 0;
-        let b = 1;
-        let n = prompt("Nhap N")
-        for(i=2 ; i<=n; i++){
-            dem = a +b;
-            a = b;
-            b = dem;
-            console.log("0"+"1"+" "+dem)
-        } 
+      
+      let n = prompt("Nhap n")
+        for(let i = n; i >= 1 ; i--){
+            for(let j = 1; j<=i; j++){
+                document.writeln("*")
+            }
+            document.writeln("</br>")
+        }
     </script>
 </body>
 </html>

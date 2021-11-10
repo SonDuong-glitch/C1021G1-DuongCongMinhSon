@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let dem = 1;
+        let number = parseInt(prompt("Nhap N:"))
+        if(number == 0){
+            alert("Giai thua cua số bạn vừa nhập là 1 ")
+        }else{
+            for(let i = 1 ; i <=number ; i++){
+                dem = dem * i;
+            }
+            document.writeln("Giai thua cua số bạn vừa nhập là: "+dem)
+        }
+    </script>
+</body>
+</html>
