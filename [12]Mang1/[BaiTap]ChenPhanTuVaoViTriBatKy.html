@@ -8,18 +8,25 @@
 </head>
 <body>
     <script>
-        let n = parseInt(prompt("Nhap Số phần tử trong mảng"))
-        var array = [];
-        for ( let i = 0 ; i < n ; i++){
-            array[i] = parseInt(prompt("Nhap phần tử tại vị trí" +i))
+        let n = parseInt(prompt("Nhap so phan tu cua mang"))
+        let a = [];
+        let b = [];
+        let e;
+        let i;
+        for( i = 0 ; i<n; i++){
+            a[i] = prompt("Nhap vao phan tu tai: "+i)
+        }console.log(a)
+        let d = parseInt(prompt("Nhap vao vi tri muon chen"))
+        if ( d != 0 && d != n-1){
+             e = parseInt(prompt("Nhap vao so muon chen"))
         }
-        console.log(array) 
-            let location1 = parseInt(prompt("Nhap vi tri ban muon chèn")) 
-            let num =parseInt(prompt("Nhap phan tu ")) 
-            if ( location1 != array[0] && location1 != array[length - 1]){
-                array[location1] = num;
-                console.log(array)
+        for ( i = 0 ; i < a.length ; i++){
+            b.push(a[i])
+            if(i === d){
+                b.push(e)
             }
+        }
+        console.log(b);
     </script>
 </body>
 </html>

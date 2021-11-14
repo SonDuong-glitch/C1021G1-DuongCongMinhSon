@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="google.com" method="post" >
+        <input type="text" id="search">
+        <input type="button" id="confirm" value="Tìm kiếm" onclick="timKiem()">
+    </form>
+    <script>
+        function timKiem(){
+        let search = document.getElementById("search").value
+        let vitri;
+        let tiengViet = ["Chó", "Mèo", "Xe","Chim","Người","Cây"]
+        let tiengAnh = ["Dog", "Cat", "Car", "Bird","Humman", "Tree"]
+        let check = Boolean;
+        for( let i = 0 ; i < tiengViet.length ; i++){
+                if(search == tiengViet[i]){
+                   check =  true
+                   vitri = i;
+                }
+        }
+        if (check == true){
+           alert(tiengAnh[vitri]);
+        }else{
+            alert("K");
+        }
+        }
+        
+    </script>
+</body>
+</html>
