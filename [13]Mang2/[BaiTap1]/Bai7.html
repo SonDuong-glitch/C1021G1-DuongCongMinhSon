@@ -9,14 +9,16 @@
 <body>
     <script>
         let array= [32,42,63,45,68,97,21,12,98,65]
-        let array2 = [];
-        let n = prompt("Nhap N:")
+        let n = parseInt(prompt("Nhap N:")) 
         for(let i = 0 ; i < array.length ; i++){
            if( n == array[i]){
-            array2 = array.filter(item => item !== n)
+            for(let j = i ; j < array.length ; j++){
+                array[j] = array[j+1]
+            }
+            array[array.length - 1] = 0
            }
         }
-        console.log(array2);
+        console.log(array);
     </script>
 </body>
 </html>

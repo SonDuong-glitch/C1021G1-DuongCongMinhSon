@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+        let n = prompt("Nhập N:")
+        let array = []
+       for(let i = 0 ; i < n ; i++) {   
+        array[i] = prompt ("Nhập phần tử tại "+i)
+       }
+    let numbers = [];
+    // Tạo 1 mảng chứa text
+    let texts = [];
+    // Tạo vòng lặp cho mảng ban đầu
+    const newArr = array.forEach((item) => {
+    if((+item)) {
+    // Nếu giá trị của item là number thì đẩy vào mảng numbers 
+    numbers.push(+item)
+    } else {
+	// Ngược lại thì đẩy sang mảng text
+    texts.push(item)
+  }
+})
+console.log(numbers, 'numbers')
+console.log(numbers.length)
+console.log(texts, 'texts')
+console.log(texts.length)
+</script>
+</body>
+</html>

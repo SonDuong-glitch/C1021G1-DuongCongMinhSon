@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let array = []
+        let array1 = []
+        let array2 = new Array(20)
+        let i;
+        let n = prompt("Nhập N:")
+       for( i = 0 ; i < n ; i++) {   
+        array[i] = prompt ("Nhập phần tử tại "+i)
+       }
+       let m = prompt("Nhập M:")
+       for( i = 0 ; i < m ; i++) {   
+        array1[i] = prompt ("Nhập phần tử tại "+i)
+       }
+       array2 = array1.concat(array);
+       console.log(array2)
+    </script>
+</body>
+</html>
