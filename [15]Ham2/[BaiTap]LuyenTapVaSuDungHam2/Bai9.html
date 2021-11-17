@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function findIndex(array){
+            let count = 0;
+            let myIndex = prompt("Nhập vào số của bạn")
+            for (let i = 0 ; i < array.length; i++){
+                if(myIndex == array[i]){
+                    count = count + 1
+                } 
+            }if(count == 0){
+                return -1;
+            }
+            return count;
+        }
+        let array = [];
+        let n = prompt ("nhap do dai mang")
+        for (let i = 0 ; i < n ; i++){
+            array[i] = prompt("Nhập giá trị tại" +i)
+        }
+        console.log(array)
+        console.log(findIndex(array))
+        
+    </script>
+</body>
+</html>

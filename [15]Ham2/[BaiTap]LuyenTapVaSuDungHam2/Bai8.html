@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let array = [];
+        let n = prompt ("nhap do dai mang")
+        for (let i = 0 ; i < n ; i++){
+            array[i] = prompt("Nhập giá trị tại" +i)
+        }
+        function daoMang(array){
+            return array.reverse()
+        }
+        let array2 = daoMang(array)
+        console.log(array2)
+    </script>
+</body> 
+</html> 
