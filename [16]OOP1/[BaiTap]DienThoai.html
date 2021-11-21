@@ -8,12 +8,46 @@
 </head>
 <body>
     <script>
+        class mode{
+            on="on";
+            off="off"
+        }
         class Phone{
-            constructor (battery,active){
-                
-
+            constructor (name,battery , status, soanTinNhan,hopThuDi, hopThuDen){
+                this.battery = battery
+                this.soanTinNhan = soanTinNhan
+                this.hopThuDi = hopThuDi
+                this.hopThuDen = hopThuDen
+            }
+            trangThai(){
+                this.battery = 100
+            }
+            onOff(){
+                if(mode.on.equals(this.status)){
+                    return true
+                }else if (this.status =="off"){
+                    return false;
+                }
+            }
+            vietTinNhan(){
+                battery--;
+                return this.soanTinNhan = prompt("Type st ...")
+            }
+            luuTinNhan(){
+                return this.hopThuDi.push(this.soanTinNhan)
+            }
+            guiTinNhan(anotherPhone){
+                return  anotherPhone.hopThuDen.push(this.soanTinNhan)
             }
         }
+        let nokia = new Phone("nokia",80,"onl",'',[],[])
+        let iphone = new Phone("iphone" ,15,"onl",'',[],[])
+        nokia.vietTinNhan()
+        nokia.luuTinNhan()
+        console.log(nokia)
+        nokia.guiTinNhan(iphone)
+        console.log('iphone',iphone)
+        console.log(iphone.hopThuDen)
     </script>
 </body>
 </html>
