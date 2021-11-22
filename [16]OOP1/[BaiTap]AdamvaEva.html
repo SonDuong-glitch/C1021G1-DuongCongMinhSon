@@ -52,10 +52,10 @@
                 if (this._weight !== x) this._weight = x;
             }
             isMale() {
-                if (this.gender == true) {
-                    return alert("Male")
-                } else {
-                    return alert("Female")
+                if (this._gender == "Male") {
+                    return true
+                } else if (this._gender == "Female"){
+                    return false
                 }
             }
             setGender() {
@@ -65,17 +65,29 @@
                 if (appleObj.weight > 0) {
                     console.log("eat Apple")
                     appleObj.weight--
-                    this.weight++
+                    this._weight++
+                }else{
+                    console.log("con gi nua ma an")
                 }
             }
-            checkApple(){
-                
+            checkApple(appleObj){
+                if(appleObj.weight > 0){
+                    return true
+                }else{
+                    return false
+                }
             }
-            say() {
-
-            }
-
         }
+        let tao = new Apple(10)
+        let eva = new Human("Eva","Female",48)
+        let adam = new Human("Adam","Male",70)
+        console.log(tao)
+        console.log(eva)
+        console.log(adam)
+        console.log(eva.isMale())
+        console.log(adam.eatApple(tao))
+        console.log(tao.weight)
+        console.log(adam._weight)
     </script>
 </body>
 

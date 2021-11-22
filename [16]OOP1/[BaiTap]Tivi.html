@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Remote{
+            constructor(code){
+                this.code = code
+            }
+            chuyenKenhTuXa(tiviObj){
+                tiviObj._chanel = prompt("Nhap kenh can chuyen")
+            }
+            tangGiamAmLuongTuXa(tiviObj){
+                let hanhDong = prompt("Bạn muốn tăng hay giảm âm lượng")
+                if(hanhDong == "Tăng"){
+                    tiviObj._volume++
+                    return tiviObj._volume
+                }else if (hanhDong == "Giảm"){
+                    tiviObj._volume-- 
+                    return tiviObj._volume
+                }
+                
+                
+            }
+        }
+        class Tivi{
+            constructor(chanel, volume, status){
+                this._chanel = chanel
+                this._volume = volume
+                this._status = status
+            }
+
+get chanel() {
+	return this._chanel;
+}
+
+set chanel(x) {
+	if(this._chanel !== x) this._chanel = x;
+}
+
+get volume() {
+	return this._volume;
+}
+
+set volume(x) {
+	if(this._volume !== x) this._volume = x;
+}
+
+get status() {
+	return this._status;
+}
+
+set status(x) {
+	if(this._status !== x) this._status = x;
+}
+            chuyenKenh(){
+                this._chanel = prompt("Nhap vao kenh can chuyen")
+            }
+            tangGiamAmLuong(){
+                this._volume--
+                return this._volume
+            }
+            checkOn(){
+                if(this._status == "On"){
+                    return true
+                }else if(this._status == "Off"){
+                    return false
+                }
+            }
+            
+        }
+        let dieuKhien = new Remote("xca")
+        let tiVi = new Tivi("THVL",80,"On")
+        console.log(dieuKhien)
+        console.log(tiVi)
+        // tiVi.chuyenKenh()
+        // console.log(tiVi)
+        // console.log(tiVi.checkOn())
+        // dieuKhien.chuyenKenhTuXa(tiVi)
+        // console.log(tiVi)
+        dieuKhien.tangGiamAmLuongTuXa(tiVi)
+    </script>
+</body>
+</html>
