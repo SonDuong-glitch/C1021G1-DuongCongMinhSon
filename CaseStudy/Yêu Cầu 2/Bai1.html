@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let luongTruocThue = parseInt(prompt("Nhập lương trước thuế"));
+        let luongSauThue = 0 ;
+        if(luongTruocThue <= 7000000){
+            luongSauThue = luongTruocThue - (luongTruocThue*5)/100 
+        }if(luongTruocThue > 7000000 && luongTruocThue <= 15000000){
+            luongSauThue = luongTruocThue - (luongTruocThue*10)/100 
+        }else{
+            luongSauThue = luongTruocThue - (luongTruocThue*20)/100 
+        }
+        console.log(luongSauThue)
+    </script>
+</body>
+</html>

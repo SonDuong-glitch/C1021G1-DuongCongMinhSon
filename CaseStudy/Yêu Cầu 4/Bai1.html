@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let c = "soN dUoNg   Cong  Minh"
+        let b = []
+        b = c.split("")
+        console.log(b)
+        for(let i = 0 ; i < b.length ; i++){
+            if(b[i] + b[i+1] == "  "){
+                b.splice(i, 1)
+                i--
+            }
+            if(i == 0 || b[i-1] == " "){
+                b[i] = b[i].toUpperCase()
+            }else{
+                b[i] = b[i].toLowerCase()
+            }
+        }
+        console.log(b.join(""))
+    </script>
+    
+</body>
+
+</html>

@@ -8,13 +8,15 @@
 </head>
 <body>
     <script>
-        let n = prompt("Nhap n")
-        for(let i = 0; i < n ; i++){
-            for(let j = 0; j<=i; j++){
-                document.writeln("*")
+        a = [4,7,8,4,5]
+        b = [9,5,4,3,2]
+        let chia = 0 
+        for(let i = 0 ; i < a.length ;i++){
+            if( a[i]/b[i] > chia){
+                chia = a[i]/b[i];
             }
-            document.writeln("</br>")
         }
+        console.log(chia)
     </script>
 </body>
 </html>

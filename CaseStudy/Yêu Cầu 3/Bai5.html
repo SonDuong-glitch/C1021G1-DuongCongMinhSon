@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let doUong = ["Cafe", "Cam Vắt", "Nước ép cà chua", "Nước lọc", "Nước dừa"]
+        let input = prompt("Nhập lựa chọn của bạn")
+        let i = 0
+        let soluong
+        let gia
+        do {
+            if (i == input) {
+                console.log(doUong[i])
+                soluong = prompt("Nhập số lượng món: ")
+                switch (doUong[input]) {
+                    case "Cafe":
+                        gia = 20000;
+                        console.log("Đơn giá: "+gia)
+                        break;
+                    case "Cam Vắt":
+                        gia = 15000;
+                        console.log("Đơn giá: "+gia)
+                        break;
+                    case "Nước ép cà chua":
+                        gia = 16000;
+                        console.log("Đơn giá: "+gia)
+                        break;
+                    case "Nước lọc":
+                        gia = 10000;
+                        console.log("Đơn giá: "+gia)
+                        break;
+                    case "Nước dừa":
+                        gia = 19000;
+                        console.log("Đơn giá: "+gia)
+                        break;
+                    default:
+                        break;
+                }
+                console.log("Số lượng: "+soluong)
+                console.log("Thành tiền: "+soluong*gia)
+            } i++
+        } while (i < doUong.length);
+
+    </script>
+</body>
+
+</html>
