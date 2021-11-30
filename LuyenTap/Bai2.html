@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function capSoThanThiet(){
+            let soThuNhat = parseInt(prompt("Nhập số thứ nhất:"))
+            let soThuHai = parseInt(prompt("Nhập số thứ hai:"))
+            let uocSoThuNhat = 0
+            let uocSoThuHai = 0
+            for (let i = 1 ; i<soThuNhat ; i++){
+                if (soThuNhat%i == 0){
+                    uocSoThuNhat += i
+                }
+            }
+            for (let i = 1 ; i<soThuHai ; i++){
+                if (soThuHai%i == 0){
+                    uocSoThuHai += i
+                }
+            }
+            if(uocSoThuNhat == soThuHai && uocSoThuHai == soThuNhat){
+                alert("Sô "+soThuNhat+" là số thân thiết của số "+soThuHai)
+            }else{
+                alert("Sô "+soThuNhat+" không phải là số thân thiết của số "+soThuHai)
+            }
+            console.log(uocSoThuNhat)
+            console.log(uocSoThuHai)
+        }
+        capSoThanThiet()
+    </script>
+</body>
+</html>

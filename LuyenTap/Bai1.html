@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = []
+        let newArr = []
+        let dem = 0
+        let tongSole = 0
+        let n = parseInt(prompt("Nhập mảng số nguyên:")) 
+        for(let i = 0 ; i <= n ; i++){
+            arr[i] = parseInt(prompt("Nhập số nguyên tại vị trí :"+i)) 
+            if( arr[i] % 2 == 1 && i % 2 == 0){
+                newArr.push(arr[i])
+                tongSole += arr[i]
+                dem += 1
+            }
+        }
+        console.log(arr)
+        document.writeln(newArr)
+        document.writeln("</br>")
+        document.writeln("Trung Bình cộng số lẻ tại vị trí chẵn là: " + tongSole/dem)
+        
+    </script>
+</body>
+</html>
