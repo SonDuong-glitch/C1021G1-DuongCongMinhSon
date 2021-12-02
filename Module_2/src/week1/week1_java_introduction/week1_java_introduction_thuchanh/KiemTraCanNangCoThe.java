@@ -1,4 +1,4 @@
-package week1_java_introduction.week1_java_introduction_baitap.week1_java_introduction_thuchanh;
+package week1.week1_java_introduction.week1_java_introduction_thuchanh;
 import java.util.Scanner;
 public class KiemTraCanNangCoThe {
     public static void main(String[] args){
