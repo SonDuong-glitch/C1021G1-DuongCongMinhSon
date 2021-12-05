@@ -18,20 +18,22 @@ public class AddElementToArray {
         }
         System.out.println("Nhập vị trí muốn chèn");
         int x = scanner.nextInt();
-        if (x > n) {
+        if (x > n && x < 0) {
             System.out.println("Không tìm thấy vị trí bạn muốn chèn");
-        } else {
-            if (x < n && x > 0) {
-                System.out.println("Nhập số bạn muốn chèn");
-                int num = scanner.nextInt();
-                for (i = n ; i > x ; i--){
-                    A[i] = A[i-1];
-                }
-                A[x] = num;
-            }
         }
-        for (i = 0 ; i < n ; i++){
-            System.out.println(A[i]);
+        else {
+            System.out.println("Nhập vị trí bạn muốn chèn: ");
+            int num = scanner.nextInt();
+            for (i = n ;  i > 0 ; i--){
+                A[i] = A[i-1];
+                if(i == x){
+                    A[i] = num;
+                    break;
+                }
+            }
+            for(i = 0  ; i < n ; i++){
+                System.out.println(A[i]);
+            }
         }
     }
 }
