@@ -28,10 +28,11 @@ public class SumColumn {
         // tìm phần tử có giá trị lớn nhất trong ma trận
         // giả sử phần tử tại vị trí (0,0) là phần tử lớn nhất
         int tong = 0 ;
-
-        for (int i = 0; i < m; i++) {
+        System.out.println("Nhập cột mà bạn muốn tính tổng: ");
+        int k = scanner.nextInt();
+        for(int i = 0 ; i <m ; i++){
+            tong += A[i][k];
         }
-
-        System.out.println("Phần tử lớn nhất trong ma trận = " + tong);
+        System.out.println("tổng  " + tong);
     }
 }
