@@ -1,4 +1,4 @@
-package week1_class_obj.week1_class_obj_thuchanh;
+package week1.week1_class_obj.week1_class_obj_thuchanh;
 
 public class Rectangle {
 
