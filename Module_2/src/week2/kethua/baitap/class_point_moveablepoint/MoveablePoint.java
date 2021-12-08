@@ -1,26 +1,26 @@
 package week2.kethua.baitap.class_point_moveablepoint;
 
 public class MoveablePoint extends Point{
-    float xSpped = 0.0f;
+    float xSpeed = 0.0f;
     float ySpeed = 0.0f;
     public MoveablePoint(){
     }
-    public  MoveablePoint(float xSpped, float ySpeed){
-        this.xSpped = xSpped;
+    public  MoveablePoint(float xSpeed, float ySpeed){
+        this.xSpeed = xSpeed;
         this.ySpeed = ySpeed;
     }
-    public MoveablePoint(float x,float y, float xSpped , float ySpeed){
+    public MoveablePoint(float x,float y, float xSpeed , float ySpeed){
         super(x,y);
-        this.xSpped = xSpped;
+        this.xSpeed = xSpeed;
         this.ySpeed = ySpeed;
     }
 
     public float getxSpped() {
-        return xSpped;
+        return xSpeed;
     }
 
-    public void setxSpped(float xSpped) {
-        this.xSpped = xSpped;
+    public void setxSpped(float xSpeed) {
+        this.xSpeed = xSpeed;
     }
 
     public float getySpeed() {
@@ -30,16 +30,16 @@ public class MoveablePoint extends Point{
     public void setySpeed(float ySpeed) {
         this.ySpeed = ySpeed;
     }
-    public void setSpeed(float xSpped , float ySpeed){
-        setxSpped(xSpped);
+    public void setSpeed(float xSpeed , float ySpeed){
+        setxSpped(xSpeed);
         setxSpped(ySpeed);
     }
     public float[] getSpeed(){
-        float arr[] = {xSpped,ySpeed};
+        float arr[] = {xSpeed,ySpeed};
         return  arr;
     }
     public MoveablePoint move(){
-        float newX = getX() + xSpped;
+        float newX = getX() + xSpeed;
         setX(newX);
         float newY = getY() + ySpeed;
         setY(newY);
@@ -49,7 +49,7 @@ public class MoveablePoint extends Point{
     @Override
     public String toString() {
         return "MoveablePoint{" +
-                "xSpped=" + xSpped +
+                "xSpped=" + xSpeed +
                 ", ySpeed=" + ySpeed +
                 ", x=" + getX() +
                 ", y=" + getY() +
