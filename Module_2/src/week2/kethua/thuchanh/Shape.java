@@ -1,4 +1,4 @@
-package week2.kethua.baitap;
+package week2.kethua.thuchanh;
 
 public class Shape {
     private String color;
