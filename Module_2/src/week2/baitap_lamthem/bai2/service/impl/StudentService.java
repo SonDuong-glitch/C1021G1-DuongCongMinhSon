@@ -1,14 +1,13 @@
-package week2.baitap_lamthem.bai2.service;
+package week2.baitap_lamthem.bai2.service.impl;
 
 import org.jetbrains.annotations.NotNull;
 import week2.baitap_lamthem.bai2.model.Student;
+import week2.baitap_lamthem.bai2.service.IStudent;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.Scanner;
 
-public class IStudentService implements IStudent {
+public class StudentService implements IStudent {
    private Student[] students = new Student[100];
    private static Scanner sc = new Scanner(System.in);
    private static int count = 0;
@@ -86,7 +85,6 @@ public class IStudentService implements IStudent {
    @Override
    public void searchByNameOrChar() {
       int choose;
-
       Scanner sc = new Scanner(System.in);
       do {
          System.out.println("1. Tìm kiếm theo tên");
@@ -131,15 +129,12 @@ public class IStudentService implements IStudent {
          for(int i = 0 ; i < students.length ; i++){
             if(students[i] == null){
                break;
-            }else{
-             newStudent[i] = students[i];
             }
+             newStudent[i] = students[i];
          }
-         Arrays.sort(newStudent);
+       Arrays.sort(newStudent);
          for (int i = 0 ; i < newStudent.length ; i++){
             System.out.println(newStudent[i]);
          }
    }
-
-
 }

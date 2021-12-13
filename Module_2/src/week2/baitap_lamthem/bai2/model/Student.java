@@ -1,6 +1,8 @@
 package week2.baitap_lamthem.bai2.model;
 
-public class Student {
+import org.jetbrains.annotations.NotNull;
+
+public class Student implements Comparable<Student> {
     private String id;
     private String name;
     private String dateOfBrith;
@@ -78,5 +80,10 @@ public class Student {
                 ", className='" + className + '\'' +
                 ", course='" + course + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo( Student o) {
+        return this.id.compareTo(o.getId());
     }
 }

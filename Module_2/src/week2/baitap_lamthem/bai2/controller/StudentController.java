@@ -1,13 +1,12 @@
 package week2.baitap_lamthem.bai2.controller;
 
-import week2.baitap_lamthem.bai2.model.Student;
-import week2.baitap_lamthem.bai2.service.IStudentService;
+import week2.baitap_lamthem.bai2.service.impl.StudentService;
 
 import java.util.Scanner;
 
-public class Test {
+public class StudentController {
     public static void main(String[] args) {
-        IStudentService test = new IStudentService();
+        StudentService test = new StudentService();
         Scanner sc = new Scanner(System.in);
         do {
             System.out.println("1.Add Student");
