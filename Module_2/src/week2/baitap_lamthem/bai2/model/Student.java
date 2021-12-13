@@ -1,26 +1,23 @@
-package week2.baitap_lamthem.bai2;
-
-import java.util.Scanner;
+package week2.baitap_lamthem.bai2.model;
 
 public class Student {
     private String id;
     private String name;
-    private String dateOFBirth;
-    private String gender ;
+    private String dateOfBrith;
+    private String gender;
     private String className;
     private String course;
 
-    public Student(String id, String name, String dateOFBirth, String gender, String className, String course) {
+    public Student(String id, String name, String dateOfBrith, String gender, String className, String course) {
         this.id = id;
         this.name = name;
-        this.dateOFBirth = dateOFBirth;
+        this.dateOfBrith = dateOfBrith;
         this.gender = gender;
         this.className = className;
         this.course = course;
     }
 
     public Student() {
-
     }
 
     public String getId() {
@@ -39,15 +36,15 @@ public class Student {
         this.name = name;
     }
 
-    public String getDateOFBirth() {
-        return dateOFBirth;
+    public String getDateOfBrith() {
+        return dateOfBrith;
     }
 
-    public void setDateOFBirth(String dateOFBirth) {
-        this.dateOFBirth = dateOFBirth;
+    public void setDateOfBrith(String dateOfBrith) {
+        this.dateOfBrith = dateOfBrith;
     }
 
-    public String isGender() {
+    public String getGender() {
         return gender;
     }
 
@@ -70,33 +67,16 @@ public class Student {
     public void setCourse(String course) {
         this.course = course;
     }
-    public void inputStudent (){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Nhập mã sinh viên");
-        setId(sc.nextLine());
-        System.out.println("Nhập tên");
-        setName(sc.nextLine());
-        System.out.println("NHập ngày sinh");
-        setDateOFBirth(sc.nextLine());
-        System.out.println("Nhập giới tính");
-        setGender(sc.nextLine());
-        System.out.println("Nhập tên lớp");
-        setClassName(sc.nextLine());
-        System.out.println("Nhập khóa");
-        setCourse(sc.nextLine());
-    }
-
 
     @Override
     public String toString() {
         return "Student{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", dateOFBirth='" + dateOFBirth + '\'' +
-                ", gender=" + gender +
+                ", dateOfBrith='" + dateOfBrith + '\'' +
+                ", gender='" + gender + '\'' +
                 ", className='" + className + '\'' +
                 ", course='" + course + '\'' +
                 '}';
     }
-
 }
