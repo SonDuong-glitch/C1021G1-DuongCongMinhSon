@@ -1,6 +1,8 @@
 package week2.baitap_lamthem.bai1;
 
 
+
+
 public class Candidate {
     private int msv;
     private String name;
@@ -11,6 +13,7 @@ public class Candidate {
     public Candidate() {
 
     }
+
     public Candidate(int msv, String name, String dOB, double diemToan, double diemAnh, double diemVan) {
         this.msv = msv;
         this.name = name;
