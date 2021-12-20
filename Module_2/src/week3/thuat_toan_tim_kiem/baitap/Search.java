@@ -1,4 +1,4 @@
-package week3.baitap;
+package week3.thuat_toan_tim_kiem.baitap;
 
 import java.util.LinkedList;
 import java.util.Scanner;
