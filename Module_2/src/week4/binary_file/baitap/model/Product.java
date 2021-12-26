@@ -1,4 +1,4 @@
-package week4.binary_file.baitap;
+package week4.binary_file.baitap.model;
 
 public class Product {
     private int id;
@@ -15,6 +15,9 @@ public class Product {
         this.anyThing = anyThing;
     }
     public Product() {
+    }
+
+    public Product(int iD, String name, String nameCompany, String anyThing) {
     }
 
     public int getId() {
@@ -55,5 +58,16 @@ public class Product {
 
     public void setAnyThing(String anyThing) {
         this.anyThing = anyThing;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", productCompany='" + productCompany + '\'' +
+                ", price=" + price +
+                ", anyThing='" + anyThing + '\'' +
+                '}';
     }
 }

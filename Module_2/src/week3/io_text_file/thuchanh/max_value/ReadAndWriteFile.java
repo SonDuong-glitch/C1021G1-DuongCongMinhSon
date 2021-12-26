@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReadAndWriteFile {
+
+    public static final String FILE_INPUT = "E:\\C1021G1_DuongCongMinhSon\\Module_2\\src\\week3\\io_text_file\\thuchanh\\max_value\\inputNumber";
+    public static final String file_output = "E:\\C1021G1_DuongCongMinhSon\\Module_2\\src\\week3\\io_text_file\\thuchanh\\max_value\\outputNumber";
+
     public List<Integer> readFile(String filePath){
         List<Integer> numbers = new ArrayList<>();
         try {
@@ -46,8 +50,8 @@ public class ReadAndWriteFile {
     }
     public static void main(String[] args) {
         ReadAndWriteFile readAndWriteFile = new ReadAndWriteFile();
-        List<Integer> numbers = readAndWriteFile.readFile("E:\\C1021G1_DuongCongMinhSon\\Module_2\\src\\week3\\io_text_file\\thuchanh\\max_value\\inputNumber");
+        List<Integer> numbers = readAndWriteFile.readFile(FILE_INPUT);
         int maxValue = findMax(numbers);
-        readAndWriteFile.writeFile("E:\\C1021G1_DuongCongMinhSon\\Module_2\\src\\week3\\io_text_file\\thuchanh\\max_value\\outputNumber", maxValue);
+        readAndWriteFile.writeFile(file_output, maxValue);
     }
 }
