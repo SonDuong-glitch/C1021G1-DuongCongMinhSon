@@ -1,6 +1,7 @@
 package case_study.task1.FuramaResort.controller;
 import case_study.task1.FuramaResort.service.impl.CustomerServiceImpl;
 import case_study.task1.FuramaResort.service.impl.EmployeeServiceImpl;
+import case_study.task1.FuramaResort.service.impl.FacilityServiceImpl;
 
 import java.util.Scanner;
 
@@ -103,14 +104,36 @@ public class FuramaController {
         }while (true);
     }
     static void displayFacilityMenu(){
+        FacilityServiceImpl facilityService = new FacilityServiceImpl();
         do {
             System.out.println("1.Display list facility");
-            System.out.println("2.Add new facility");
-            System.out.println("3.Display list facility maintenance");
-            System.out.println("4.Return main menu");
+            System.out.println("2.Add new Villa");
+            System.out.println("3.Add new House");
+            System.out.println("4.Add new Room");
+            System.out.println("5.Display list facility maintenance");
+            System.out.println("6.Return main menu");
             Scanner sc = new Scanner(System.in);
             System.out.println("Choose your options");
             int choose = sc.nextInt();
+            switch (choose){
+                case 1:
+                    facilityService.displayFacility();
+                    break;
+                case 2:
+                    facilityService.addVilla();
+                    break;
+                case 3:
+                    facilityService.addHouse();
+                    break;
+                case 4:
+                    facilityService.addRoom();
+                    break;
+                case 5:
+                    facilityService.displayMaintenanceFacility();
+                case 6:
+                    displayMainMenu();
+
+            }
         }while (true);
     }
     static void displayBookingMenu(){

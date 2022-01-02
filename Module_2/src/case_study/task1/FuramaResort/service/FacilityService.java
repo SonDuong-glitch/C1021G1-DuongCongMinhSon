@@ -6,5 +6,4 @@ public interface FacilityService  {
     void addHouse();
     void addRoom();
     void displayMaintenanceFacility();
-    void returnMenu();
 }
