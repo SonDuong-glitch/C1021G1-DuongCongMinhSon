@@ -1,6 +1,8 @@
 package BaiThiThucHanh.controler;
 
+import BaiThiThucHanh.models.ImportedProducts;
 import BaiThiThucHanh.service.impl.ExportProductImpl;
+import BaiThiThucHanh.service.impl.ImportProductImpl;
 
 import java.util.Scanner;
 
@@ -28,7 +30,8 @@ public class MainControler {
             }
         } while (true);
     }
-    public static void   MenuExportProduct(){
+
+    public static void MenuExportProduct() {
         ExportProductImpl exportProduct = new ExportProductImpl();
         do {
             System.out.println("1. Add new product");
@@ -39,11 +42,11 @@ public class MainControler {
             System.out.println("Please choose your option");
             Scanner sc = new Scanner(System.in);
             int choose = sc.nextInt();
-            switch (choose){
+            switch (choose) {
                 case 1:
                     exportProduct.addNewProduct();
                     break;
-                case 2 :
+                case 2:
                     exportProduct.deleteProduct();
                     break;
                 case 3:
@@ -56,9 +59,11 @@ public class MainControler {
                     MainMenu();
                     break;
             }
-        }while (true);
+        } while (true);
     }
-    public static void   MenuImportProduct(){
+
+    public static void MenuImportProduct() {
+        ImportProductImpl importProduct = new ImportProductImpl();
         do {
             System.out.println("1. Add new product");
             System.out.println("2.Delete Product");
@@ -68,11 +73,26 @@ public class MainControler {
             System.out.println("Please choose your option");
             Scanner sc = new Scanner(System.in);
             int choose = sc.nextInt();
-            switch (choose){
-
+            switch (choose) {
+                case 1:
+                    importProduct.addNewProduct();
+                    break;
+                case 2:
+                    importProduct.deleteProduct();
+                    break;
+                case 3:
+                    importProduct.displayProduct();
+                    break;
+                case 4:
+                    importProduct.searchProduct();
+                    break;
+                case 5:
+                    MainMenu();
+                    break;
             }
-    }while (true);
+        } while (true);
     }
+
     public static void main(String[] args) {
         MainMenu();
     }
