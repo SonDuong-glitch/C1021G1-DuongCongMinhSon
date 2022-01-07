@@ -78,6 +78,7 @@ public class ExportProductImpl implements IExportProduct {
                     break;
                 case 3:
                     System.exit(0);
+                    break;
 
             }
         }while (true);
@@ -88,8 +89,7 @@ public class ExportProductImpl implements IExportProduct {
         String codeForSearch = sc.nextLine();
         for(int i = 0 ; i < exportProductsList.size() ; i++){
             if(codeForSearch.equals(exportProductsList.get(i).getProductCode())){
-
-                exportProductsList.get(i).toString();
+                System.out.println(  exportProductsList.get(i).toString());
             }
         }
     }
@@ -99,8 +99,7 @@ public class ExportProductImpl implements IExportProduct {
         String nameForSearch = sc.nextLine();
         for(int i = 0 ; i < exportProductsList.size() ; i++){
             if(nameForSearch.equals(exportProductsList.get(i).getNameProduct())){
-
-                exportProductsList.get(i).toString();
+                System.out.println(exportProductsList.get(i).toString());
             }
         }
     }
@@ -141,7 +140,11 @@ public class ExportProductImpl implements IExportProduct {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            bufferedReader.close();
+            try {
+                bufferedReader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return exportProductsList;
     }

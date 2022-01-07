@@ -1,5 +1,7 @@
 package BaiThiThucHanh.controler;
 
+import BaiThiThucHanh.service.impl.ExportProductImpl;
+
 import java.util.Scanner;
 
 public class MainControler {
@@ -27,6 +29,7 @@ public class MainControler {
         } while (true);
     }
     public static void   MenuExportProduct(){
+        ExportProductImpl exportProduct = new ExportProductImpl();
         do {
             System.out.println("1. Add new product");
             System.out.println("2.Delete Product");
@@ -37,7 +40,21 @@ public class MainControler {
             Scanner sc = new Scanner(System.in);
             int choose = sc.nextInt();
             switch (choose){
-
+                case 1:
+                    exportProduct.addNewProduct();
+                    break;
+                case 2 :
+                    exportProduct.deleteProduct();
+                    break;
+                case 3:
+                    exportProduct.displayProduct();
+                    break;
+                case 4:
+                    exportProduct.searchProduct();
+                    break;
+                case 5:
+                    MainMenu();
+                    break;
             }
         }while (true);
     }
