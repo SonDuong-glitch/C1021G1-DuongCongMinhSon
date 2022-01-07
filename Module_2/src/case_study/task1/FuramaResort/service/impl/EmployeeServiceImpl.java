@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeServiceImpl implements EmployeeService {
-    public static final String FIle_Employee  = "E:\\C1021G1_DuongCongMinhSon\\Module_2\\src\\case_study\\task1\\FuramaResort\\data\\EmployeeData.csv";
+    public static final String FIle_Employee  = "E:\\C1021G1_DuongCongMinhSon\\Module_2\\src\\case_study\\task1\\FuramaResort\\data\\EmployeeData.Exportproduct.csv";
     private static List<Employee> employeeList = new ArrayList<Employee>();
     private static Scanner sc = new Scanner(System.in);
 

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CustomerServiceImpl implements CustomerService {
-    public static final String File_Customer = "E:\\C1021G1_DuongCongMinhSon\\Module_2\\src\\case_study\\task1\\FuramaResort\\data\\Customer.csv";
+    public static final String File_Customer = "E:\\C1021G1_DuongCongMinhSon\\Module_2\\src\\case_study\\task1\\FuramaResort\\data\\Customer.Exportproduct.csv";
     List<Customer> customerList = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
 
