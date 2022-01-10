@@ -19,18 +19,47 @@ public class SaveAccountImpl implements ISaveAccount {
         id += saveAccountList.size();
         System.out.println("Input Account Code");
         String accountCode = sc.nextLine();
+        while (accountCode == null){
+            System.out.println("Input again");
+            accountCode = sc.nextLine();
+        }
         System.out.println("Input Name ");
         String name = sc.nextLine();
+        while (name == null){
+            System.out.println("Input again");
+            name = sc.nextLine();
+        }
         System.out.println("Input date open account");
         String date = sc.nextLine();
+        while (date == null || ! date.matches("\\d{1,2}[-|/]\\d{1,2}[-|/]\\d{4}")){
+            System.out.println("Input again");
+            date = sc.nextLine();
+        }
         System.out.println("Input Money Save");
         double saveMoney = Double.parseDouble(sc.nextLine());
+        while (saveMoney < 0){
+            System.out.println(" Must > 0");
+            saveMoney = Double.parseDouble(sc.nextLine());
+        }
         System.out.println("Input date to save money");
         String dateToSave = sc.nextLine();
+        while (dateToSave == null || ! dateToSave.matches("\\d{1,2}[-|/]\\d{1,2}[-|/]\\d{4}")){
+            System.out.println("Input again");
+            dateToSave = sc.nextLine();
+        }
         System.out.println("input Save Interest");
         double saveInterest = Double.parseDouble(sc.nextLine());
+        while (saveInterest < 0){
+            System.out.println(" Must > 0");
+            saveInterest= Double.parseDouble(sc.nextLine());
+        }
         System.out.println("Input Save Period");
         String datePeriod = sc.nextLine();
+        while (datePeriod == null || ! datePeriod.matches("\\d{1,2}[-|/]\\d{1,2}[-|/]\\d{4}")){
+            System.out.println("Input again");
+            datePeriod = sc.nextLine();
+        }
+
         SaveAccount saveAccount = new SaveAccount(id, accountCode, name, date, saveMoney, dateToSave, saveInterest, datePeriod);
         saveAccountList.add(saveAccount);
         writeFile(File_Save_Accont,saveAccountList);
