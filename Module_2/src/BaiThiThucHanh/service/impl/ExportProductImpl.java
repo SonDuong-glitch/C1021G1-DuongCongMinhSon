@@ -24,8 +24,18 @@ public class ExportProductImpl implements IExportProduct {
         String nameProduct = sc.nextLine();
         System.out.println("Input price");
         double priceForSale = Double.parseDouble(sc.nextLine());
+        while (priceForSale < 0 ){
+            System.out.println("Price must > 0");
+            System.out.println("input agian");
+            priceForSale = Double.parseDouble(sc.nextLine());
+        }
         System.out.println("Input quanlity");
         double quanlily = Double.parseDouble(sc.nextLine());
+        while (quanlily < 0 ){
+            System.out.println("Price must > 0");
+            System.out.println("input agian");
+            quanlily = Double.parseDouble(sc.nextLine());
+        }
         System.out.println("Input producer");
         String producer = sc.nextLine();
         System.out.println("input export product");
@@ -53,6 +63,7 @@ public class ExportProductImpl implements IExportProduct {
                 }
             }
         }
+        writeFileProduct(File_ExportProduct, exportProductsList);
     }
 
     @Override
@@ -61,6 +72,7 @@ public class ExportProductImpl implements IExportProduct {
         ) {
             System.out.println(exportProducts.toString());
         }
+        List<ExportProducts> exportProductsList = ReadFileProduct(File_ExportProduct);
     }
 
     @Override
@@ -136,7 +148,7 @@ public class ExportProductImpl implements IExportProduct {
             String line;
             String[] temp;
             ExportProducts exportProducts;
-            while ((line = bufferedReader.readLine()) != null) {
+            while ((line = bufferedReader.readLine()) == null) {
                 temp = line.split(",");
                 exportProducts = new ExportProducts(temp[0], temp[1], temp[2], Double.parseDouble(temp[3]), Double.parseDouble(temp[4]), temp[5], Double.parseDouble(temp[6]), temp[7]);
             }

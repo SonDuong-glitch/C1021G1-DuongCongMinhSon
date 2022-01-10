@@ -84,7 +84,8 @@ public class MainControler {
                     importProduct.displayProduct();
                     break;
                 case 4:
-                    importProduct.searchProduct();
+                    importProduct
+                            .searchProduct();
                     break;
                 case 5:
                     MainMenu();

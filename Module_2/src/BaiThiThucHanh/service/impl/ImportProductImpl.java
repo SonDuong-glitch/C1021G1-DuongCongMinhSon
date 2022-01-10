@@ -11,9 +11,6 @@ import java.util.Scanner;
 
 public class ImportProductImpl implements IImportProduct {
     public static final String File_ImportProduct = "E:\\C1021G1_DuongCongMinhSon\\Module_2\\src\\BaiThiThucHanh\\data\\importProduct.csv";
-    //    private double importPrices;
-//    private String importProvince;
-//    private double importTax;
     private static final List<ImportedProducts> importedProductsList = new ArrayList<>();
 
     @Override
@@ -27,16 +24,36 @@ public class ImportProductImpl implements IImportProduct {
         String nameProduct = sc.nextLine();
         System.out.println("Input price");
         double priceForSale = Double.parseDouble(sc.nextLine());
+        while (priceForSale < 0 ){
+            System.out.println("Price must > 0");
+            System.out.println("input agian");
+            priceForSale = Double.parseDouble(sc.nextLine());
+        }
         System.out.println("Input quanlity");
         double quanlily = Double.parseDouble(sc.nextLine());
+        while (quanlily < 0 ){
+            System.out.println("quanlily must > 0");
+            System.out.println("input agian");
+            quanlily = Double.parseDouble(sc.nextLine());
+        }
         System.out.println("Input producer");
         String producer = sc.nextLine();
         System.out.println("input import price");
         double importPrices = Double.parseDouble(sc.nextLine());
+        while (importPrices < 0 ){
+            System.out.println("importTax must > 0");
+            System.out.println("input agian");
+            importPrices = Double.parseDouble(sc.nextLine());
+        }
         System.out.println("Input import provice");
         String importProvince = sc.nextLine();
         System.out.println("Input Import Tax");
         double importTax = Double.parseDouble(sc.nextLine());
+        while (importTax < 0 ){
+            System.out.println("importTax must > 0");
+            System.out.println("input agian");
+            importTax = Double.parseDouble(sc.nextLine());
+        }
         ImportedProducts importProduct = new ImportedProducts(iDProduct, productCode, nameProduct, priceForSale, quanlily, producer, importPrices, importProvince, importTax);
         importedProductsList.add(importProduct);
         writeFileProduct(File_ImportProduct, importedProductsList);
@@ -63,6 +80,8 @@ public class ImportProductImpl implements IImportProduct {
 
     @Override
     public void displayProduct() {
+        List<ImportedProducts> importedProductsList  = null;
+        importedProductsList = ReadFileProduct(File_ImportProduct);
         for (ImportedProducts importedProducts : importedProductsList
         ) {
             System.out.println(importedProducts.toString());

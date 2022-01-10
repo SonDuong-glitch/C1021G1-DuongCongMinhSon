@@ -9,6 +9,7 @@ public abstract class Product {
     private String producer;
 
     public Product() {
+
     }
 
     public Product(String iDProduct, String productCode, String nameProduct, double priceForSale, double quanlily, String producer) {
