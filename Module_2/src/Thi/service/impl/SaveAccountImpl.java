@@ -67,14 +67,18 @@ public class SaveAccountImpl implements ISaveAccount {
 
     @Override
     public void deleteAccount() {
-        System.out.println("Input code account you want to del");
-        String codeToDel = sc.nextLine();
-        for (int i = 0; i < saveAccountList.size(); i++) {
-            if (codeToDel.equals(saveAccountList.get(i).getAccountCode())) {
-                saveAccountList.remove(i);
+        try {
+            System.out.println("Input code account you want to del");
+            String codeToDel = sc.nextLine();
+            for (int i = 0; i < saveAccountList.size(); i++) {
+                if (codeToDel.equals(saveAccountList.get(i).getAccountCode())) {
+                    saveAccountList.remove(i);
+                }
             }
-        }
-        writeFile(File_Save_Accont,saveAccountList);
+        }catch (FileNotFoundException){}
+
+
+
     }
 
     @Override
