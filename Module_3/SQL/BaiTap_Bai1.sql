@@ -6,7 +6,7 @@ create table class(
     primary key (id)
 );
 select * from class;
-insert into class values (2,"son");
+insert into class(name) values ("son");
 
 create table teacher (
 	id_teacher int not null auto_increment,
@@ -16,4 +16,4 @@ create table teacher (
     primary key (id_teacher)
 );
 select*from teacher;
-insert into teacher value (2,'son',12,'quang binh');
+insert into teacher(name ,age, country) values ('son',12,'quang binh');
