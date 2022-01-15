@@ -27,8 +27,23 @@ select*from Customer;
 insert into Customer(name_customer , cAge) 
 values ('Minh Quan',10),('Ngoc Oanh',20),('Hong Ha',50);
 insert into Oder(cID , oDate, oTotalPrice)
-values (1,'2006-3-21',null),(1,'2006-3-23',null),(1,'2006-3-16',null);
+values (1,'2006-3-21',null),(2,'2006-3-23',null),(1,'2006-3-16',null);
 insert into Product(pName, pPrice)
 values ('May giat', 3), ('Tu Lanh',5),('Dieu Hoa',7),('Quat',1),('Bep Dien',2);
 insert into OderDetail(oID, pID,odQTY)
 values (1,1,3),(1,3,7),(1,4,2),(2,1,1),(3,1,8),(2,5,4),(2,3,3);
+select oID, oDate, oTotalPrice from Oder;
+select* from Customer
+join Oder
+on Oder.cID = Customer.cID;
+select* from Customer
+join Oder
+on Oder.cID = Customer.cID;
+select* from Customer
+left join Oder
+on Oder.cID = Customer.cID
+where customer.cID not in (select cID from Oder);
+select o.oID,o.cID,o.oDAte,p.pID, p.pName,od.odQTY,p.pPrice,  (od.odQTY* p.pPrice) oTotalPrice  from oder o 
+left join oderdetail od on o.oID = od.oID 
+left join product p on od.pID=p.pID;
+
