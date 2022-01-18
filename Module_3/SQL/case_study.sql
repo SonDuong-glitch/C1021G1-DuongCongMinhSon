@@ -186,12 +186,26 @@ ON khach_hang.ma_khach_hang = hop_dong.ma_khach_hang
 WHERE khach_hang.ma_loai_khach LIKE 1
 GROUP BY khach_hang.ma_khach_hang;
 -- câu 5 
-SELECT khach_hang.ma_khach_hang , khach_hang.ho_ten, ten_loai_khach, hop_dong.ma_hop_dong,
- ngay_lam_hop_dong,ngay_ket_thuc, hop_dong_chi_tiet.so_luong* FROM khach_hang
-JOIN loai_khach
+SELECT khach_hang.ma_khach_hang ,khach_hang.ho_ten, ten_loai_khach, hop_dong.ma_hop_dong,
+ngay_lam_hop_dong,ngay_ket_thuc, hop_dong_chi_tiet.so_luong*dich_vu.chi_phi_thue*dich_vu_di_kem.gia as tong_tien FROM khach_hang
+LEFT JOIN loai_khach
 ON loai_khach.ma_loai_khach = khach_hang.ma_khach_hang
-JOIN hop_dong 
+LEFT JOIN hop_dong 
 ON hop_dong.ma_khach_hang = khach_hang.ma_khach_hang
-JOIN hop_dong_chi_tiet
-ON hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong;
-joi
+LEFT JOIN hop_dong_chi_tiet
+ON hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong
+LEFT JOIN dich_vu
+ON dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
+LEFT JOIN dich_vu_di_kem
+ON dich_vu_di_kem.ma_dich_vu_di_kem = hop_dong_chi_tiet.ma_dich_vu_di_kem;
+-- cau 6
+SELECT dich_vu.ma_dich_vu, dich_vu.ten_dich_vu, dich_vu.dien_tich, dich_vu.chi_phi_thue, loai_dich_vu.ten_loai_dich_vu 
+FROM dich_vu
+LEFT JOIN loai_dich_vu
+ON dich_vu.ma_loai_dich_vu = loai_dich_vu.ma_loai_dich_vu
+LEFT JOIN hop_dong
+ON hop_dong.ma_dich_vu = dich_vu.ma_dich_vu
+WHERE hop_dong.ngay_lam_hop_dong <'2021-01-01' OR hop_dong.ngay_lam_hop_dong>'2021-03-31'
+GROUP BY ma_dich_vu;
+
+
