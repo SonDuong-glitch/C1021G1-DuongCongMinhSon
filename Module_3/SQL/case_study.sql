@@ -208,12 +208,12 @@ ON hop_dong.ma_dich_vu = dich_vu.ma_dich_vu
 where hop_dong.ngay_lam_hop_dong not between "2021-01-01" and "2021-03-31"
 GROUP BY ten_dich_vu;
 -- cau 7
-select  dich_vu.ma_dich_vu, ten_dich_vu, dich_vu.dien_tich, dich_vu.so_nguoi_toi_da, dich_vu.chi_phi_thue, loai_dich_vu.ten_loai_dich_vu
-from dich_vu
-inner join loai_dich_vu
-on dich_vu.ma_loai_dich_vu = loai_dich_vu.ma_loai_dich_vu
-inner join hop_dong
-on dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
+SELECT  dich_vu.ma_dich_vu, ten_dich_vu, dich_vu.dien_tich, dich_vu.so_nguoi_toi_da, dich_vu.chi_phi_thue, loai_dich_vu.ten_loai_dich_vu
+FROM dich_vu
+INNER JOIN loai_dich_vu
+ON dich_vu.ma_loai_dich_vu = loai_dich_vu.ma_loai_dich_vu
+INNER JOIN hop_dong
+ON dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
 where year(hop_dong.ngay_lam_hop_dong) = "2020";
 -- cau 8
 -- cach 1
@@ -244,19 +244,19 @@ INNER JOIN khach_hang ON loai_khach.ma_loai_khach = khach_hang.ma_loai_khach
 INNER JOIN hop_dong ON khach_hang.ma_khach_hang = hop_dong.ma_khach_hang
 INNER JOIN hop_dong_chi_tiet ON hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong
 INNER JOIN dich_vu_di_kem ON hop_dong_chi_tiet.ma_dich_vu_di_kem = dich_vu_di_kem.ma_dich_vu_di_kem
-where loai_khach.ten_loai_khach = "Diamond" and (khach_hang.dia_chi like "%Vinh" or khach_hang.dia_chi like "%Quảng Ngãi");
+WHERE loai_khach.ten_loai_khach = "Diamond" AND (khach_hang.dia_chi LIKE "%Vinh" OR khach_hang.dia_chi LIKE "%Quảng Ngãi");
 -- cau 12
-select hop_dong.ma_hop_dong, nhan_vien.ho_ten, khach_hang.ho_ten, khach_hang.so_dien_thoai, dich_vu.ten_dich_vu, 
-sum(hop_dong_chi_tiet.so_luong) as "so_luong_dich_vu_di_kem", hop_dong.tien_dat_coc
-from nhan_vien 
-left join hop_dong 
-on nhan_vien.ma_nhan_vien = hop_dong.ma_nhan_vien
-left join khach_hang
-on khach_hang.ma_khach_hang = hop_dong.ma_khach_hang
-left join hop_dong_chi_tiet
-on hop_dong_chi_tiet.ma_hop_dong = hop_dong.ma_hop_dong
+SELECT hop_dong.ma_hop_dong, nhan_vien.ho_ten, khach_hang.ho_ten, khach_hang.so_dien_thoai, dich_vu.ten_dich_vu, 
+sum(hop_dong_chi_tiet.so_luong) AS "so_luong_dich_vu_di_kem", hop_dong.tien_dat_coc
+FROM nhan_vien 
+LEFT JOIN hop_dong 
+ON nhan_vien.ma_nhan_vien = hop_dong.ma_nhan_vien
+LEFT JOIN khach_hang
+ON khach_hang.ma_khach_hang = hop_dong.ma_khach_hang
+LEFT JOIN hop_dong_chi_tiet
+ON hop_dong_chi_tiet.ma_hop_dong = hop_dong.ma_hop_dong
 left join dich_vu 
-on dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
+ON dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
 WHERE  dich_vu.ten_dich_vu NOT IN
 (SELECT dich_vu.ma_dich_vu
 FROM dich_vu 
