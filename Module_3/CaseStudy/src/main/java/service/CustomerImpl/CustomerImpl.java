@@ -117,11 +117,17 @@ public class CustomerImpl implements ICustomer{
 
     @Override
     public boolean deleteCustomer(int id) throws SQLException {
-        return false;
+        boolean rowDeleted;
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement(DELETE_CUSTOMER_SQL);) {
+            statement.setInt(1, id);
+            rowDeleted = statement.executeUpdate() > 0;
+        }
+        return rowDeleted;
     }
 
     @Override
-    public boolean updateCustomer(Customer user) throws SQLException {
+    public boolean updateCustomer(Customer customer) throws SQLException {
         return false;
     }
 }

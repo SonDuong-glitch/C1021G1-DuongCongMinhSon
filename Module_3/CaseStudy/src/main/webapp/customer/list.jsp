@@ -54,8 +54,6 @@
     </c:forEach>
     </tbody>
 </table>
-
-
 <!-- Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -79,7 +77,7 @@
 
 
 <form hidden id="form-delete" method="post" action="/customer">
-    <input type="text" name="action" value="delete">
+    <input type="text" name="action" value="DeleteCustomer">
     <input type="text" name="id" id="id-customer">
 </form>
 

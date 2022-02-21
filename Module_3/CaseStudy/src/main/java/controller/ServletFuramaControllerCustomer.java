@@ -68,6 +68,7 @@ public class ServletFuramaControllerCustomer extends HttpServlet {
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
+
                 break;
             default:
                 listAllCustomer(request,response);
@@ -75,15 +76,14 @@ public class ServletFuramaControllerCustomer extends HttpServlet {
         }
     }
 
-    private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+    private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         customerImpl.deleteCustomer(id);
-        try {
-            response.sendRedirect("/customer");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
+        List<Customer> customerList = customerImpl.selectAllCustomer();
+        request.setAttribute("customerList", customerList);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("customer/list.jsp");
+        dispatcher.forward(request, response);
     }
 
     private void editCustomer(HttpServletRequest request, HttpServletResponse response) {

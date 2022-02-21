@@ -22,9 +22,6 @@ public class ServletFuramaControllerContract extends HttpServlet {
             case "EditContract":
                 showFormEditContract();
                 break;
-            case "DeleteContract":
-                showFormDeleteContract();
-                break;
             default:
                 showAllListContract();
                 break;
@@ -33,10 +30,6 @@ public class ServletFuramaControllerContract extends HttpServlet {
 
     private void showAllListContract() {
     }
-
-    private void showFormDeleteContract() {
-    }
-
     private void showFormEditContract() {
     }
 
