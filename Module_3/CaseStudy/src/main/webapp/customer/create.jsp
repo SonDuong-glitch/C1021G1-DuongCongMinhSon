@@ -10,27 +10,47 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="/assert/bootstrap413/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/bootstrap413/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container-fluid">
     <div class="row">
         <div class="col-3">
         </div>
-        <div class="col-9">
-            <form action="/customer?action=create" method="post">
+        <div class="col-6">
+
+            <form action="/customer?action=AddCustomer" method="post">
                 <div class="form-group">
                     <label for="name-customer">Name</label>
-                    <input type="text" class="form-control" id="name-customer" name="name-customer">
+                    <input type="text" class="form-control" id="name-customer" name="name_customer">
+                </div>
+                <div class="form-group">
+                    <label for="id-card">
+                        Customer Id card
+                    </label>
+                    <input type="text" class="form-control" id="id-card" name="id_card">
                 </div>
                 <div class="form-group">
                     <label for="code-customer">Code</label>
-                    <input type="text" class="form-control" id="code-customer" name="code-customer">
+                    <input type="text" class="form-control" id="code-customer" name="code_customer">
                 </div>
                 <div class="form-group">
                     <label for="birthday">Birthday</label>
                     <input type="date" class="form-control" id="birthday" name="birthday">
                 </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" class="form-control" id="address" name="address">
+                </div>
+                <div class="form-group">
+                    <label for="phoneNumber">Phone Number</label>
+                    <input type="text" class="form-control" id="phoneNumber" name="phoneNumber">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" id="email" name="email">
+                </div>
+
                 <div class="form-group">
                     <label for="gender">Gender</label>
                     <select class="form-control" id="gender" name="gender" required>
@@ -43,11 +63,10 @@
                     <label for="category">CustomerType</label>
                     <select class="form-control" id="category" name="idCustomerType">
                         <c:forEach var="type" items="${customerTypeList}">
-                            <option value="${type.idCustomerType}">${type.nameCustomerType}</option>
+                            <option value="${type.customerTypeId}">${type.customerTypeName}</option>
                         </c:forEach>
                     </select>
                 </div>
-
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>

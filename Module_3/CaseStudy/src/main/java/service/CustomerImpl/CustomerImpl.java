@@ -7,17 +7,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerImpl implements ICustomer{
-    private String jdbcURL = "jdbc:mysql://localhost:3306/user_manager?allowPublicKeyRetrieval=true&useSSL=false";
+    private String jdbcURL = "jdbc:mysql://localhost:3306/casestudy_jsp";
     private String jdbcUsername = "root";
     private String jdbcPassword = "26021998";
-    private static final String INSERT_CUSTOMER_SQL = "INSERT INTO customer (customer_code,customer_type_id,customer_birthday," +
-            " customer_gender, customer_id_card, customer_phone, customer_email, customer_address) VALUES (?,?,?,?,?,?,?,?,?) ";
-    private static final String SELECT_CUSTOMER_BY_ID_SQL = "SELECT customer_code,customer_type_id,customer_birthday,\" +\n" +
-            "            \" customer_gender, customer_id_card, customer_phone, customer_email, customer_address WHERE CUSTOMER_CODE = ?";
-    private static final String SELECT_ALL_CUSTOMER = "SELECT * FROM casestudy_jsp.customer";
-    private static final String DELETE_CUSTOMER_SQL = "DELETE FROM CUSTOMER WHERE CUSTOMER_CODE = ? ";
-    private static final String UPDATE_CUSTOMER_SQL = "UPDATE CUSTOMER SET CUSTOMER_NAME = ? , CUSTOMER_BIRTHDAY = ? ," +
-            " CUSTOMER_GENDER = ? , CUSTOMER_ID_CARD = ? , CUSTOMER_PHONE = ? , CUSTOMER_EMAIL = ?, CUSTOMER_ADDRESS = ?, CUSTOMER_TYPE_ID = ?";
+    private static final String INSERT_CUSTOMER_SQL = "INSERT INTO customer (customer_code,customer_type_id,customer_name,customer_birthday," +
+            " customer_gender, customer_id_card, customer_phone, customer_email, customer_address) VALUES (?,?,?,?,?,?,?,?,?);";
+    private static final String SELECT_CUSTOMER_BY_ID_SQL = "SELECT (customer_code,customer_type_id,customer_name,customer_birthday," +
+            "             customer_gender, customer_id_card, customer_phone, customer_email, customer_address) from casestudy_jsp.customer WHERE customer_id = ?";
+    private static final String SELECT_ALL_CUSTOMER = "SELECT * FROM casestudy_jsp.customer WHERE del_flg = 0;";
+    private static final String UPDATE_FLAG = "UPDATE `customer` SET `del_flg` = '1' WHERE `customer_id` = ?;";
+    private static final String UPDATE_CUSTOMER_SQL = "UPDATE CUSTOMER SET customer_name = ? , customer_birthday = ? ," +
+            " customer_gender = ? , customer_id_card = ? , customer_phone = ? , customer_email = ?, customer_address = ?, customer_type_id = ?";
     public CustomerImpl() {}
     protected Connection getConnection(){
         Connection connection = null;
@@ -32,18 +32,21 @@ public class CustomerImpl implements ICustomer{
     @Override
     public void insertUser(Customer customer) throws SQLException {
         System.out.println(INSERT_CUSTOMER_SQL);
-        try (Connection connection = getConnection();
-             PreparedStatement statement = connection.prepareStatement(INSERT_CUSTOMER_SQL)){
-            statement.setString(1,customer.getCustomerName());
-            statement.setString(2, String.valueOf(customer.getCustomerBirthday()));
-            statement.setString(3, String.valueOf(customer.isGender()));
-            statement.setString(4,customer.getCustomerIdCard());
-            statement.setString(5,customer.getCustomerPhone());
-            statement.setString(6,customer.getCustomerEmail());
-            statement.setString(7,customer.getCustomerAddress());
-            statement.setString(8, String.valueOf(customer.getCustomerTypeId()));
-            System.out.println(statement);
-        }catch (SQLException e){
+        try {
+            Connection connection = getConnection();
+            PreparedStatement statement = connection.prepareStatement(INSERT_CUSTOMER_SQL);
+                statement.setString(1,customer.getCustomerCode());
+                statement.setInt(2, Integer.valueOf(customer.getCustomerTypeId()));
+                statement.setString(3,customer.getCustomerName());
+                statement.setString(4,customer.getCustomerBirthday());
+                statement.setBoolean(5,Boolean.valueOf(customer.isGender()));
+                statement.setString(6,customer.getCustomerIdCard());
+                statement.setString(7,customer.getCustomerPhone());
+                statement.setString(8,customer.getCustomerEmail());
+                statement.setString(9,customer.getCustomerAddress());
+                System.out.println(statement);
+                statement.executeUpdate();
+        } catch (SQLException e){
             printSQLException(e);
         }
     }
@@ -72,15 +75,15 @@ public class CustomerImpl implements ICustomer{
             statement.setInt(1,id);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()){
-                String customerCode = resultSet.getString("CUSTOMER_CODE");
-                String customerName = resultSet.getString("CUSTOMER_NAME");
-                String customerBirthday = resultSet.getString("CUSTOMER_BIRTHDAY");
-                boolean customerGender = resultSet.getBoolean("CUSTOMER_GENDER");
-                String customerIdCard = resultSet.getString("CUSTOMER_ID_CARD");
-                String customerPhone =  resultSet.getString("CUSTOMER_PHONE");
-                String customerEmail = resultSet.getString("CUSTOMER_EMAIL");
-                String customerAddress = resultSet.getString("CUSTOMER_ADDRESS");
-                int customerType = resultSet.getInt("CUSTOMER_TYPE_ID");
+                String customerCode = resultSet.getString("customer_code");
+                int customerType = resultSet.getInt("customer_type_id");
+                String customerName = resultSet.getString("customer_name");
+                String customerBirthday = resultSet.getString("customer_birthday");
+                boolean customerGender = resultSet.getBoolean("customer_gender");
+                String customerIdCard = resultSet.getString("customer_id_card");
+                String customerPhone =  resultSet.getString("customer_phone");
+                String customerEmail = resultSet.getString("customer_email");
+                String customerAddress = resultSet.getString("customer-address");
                 customer = new Customer(id,customerCode,customerType,customerName,customerBirthday,customerGender,customerIdCard,customerPhone,customerEmail,customerAddress);
             }
         } catch (SQLException e) {
@@ -119,7 +122,7 @@ public class CustomerImpl implements ICustomer{
     public boolean deleteCustomer(int id) throws SQLException {
         boolean rowDeleted;
         try (Connection connection = getConnection();
-             PreparedStatement statement = connection.prepareStatement(DELETE_CUSTOMER_SQL);) {
+             PreparedStatement statement = connection.prepareStatement(UPDATE_FLAG)) {
             statement.setInt(1, id);
             rowDeleted = statement.executeUpdate() > 0;
         }
@@ -128,6 +131,20 @@ public class CustomerImpl implements ICustomer{
 
     @Override
     public boolean updateCustomer(Customer customer) throws SQLException {
-        return false;
+        boolean rowUpdated;
+        try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement(UPDATE_CUSTOMER_SQL);) {
+            statement.setString(1,customer.getCustomerCode());
+            statement.setString(2, customer.getCustomerName());
+            statement.setString(3, customer.getCustomerBirthday());
+            statement.setBoolean(4, customer.isGender());
+            statement.setString(5, customer.getCustomerIdCard());
+            statement.setString(6,customer.getCustomerPhone());
+            statement.setInt(7,customer.getCustomerTypeId());
+            statement.setString(8,customer.getCustomerEmail());
+            statement.setString(9,customer.getCustomerAddress());
+            rowUpdated = statement.executeUpdate() > 0;
+        }
+        return rowUpdated;
     }
 }
+

@@ -10,19 +10,28 @@
     <title>Document</title>
     <style>
         header,
-        footer {
+        p-end {
+            position: relative;
             background-color: blue;
             color: white;
             padding: 0.5;
         }
+
+        header {
+            float: left;
+            margin-right: 0%;
+        }
+
         ul li {
+            float: left;
             padding: 10px;
         }
 
         .boxmenu {
+            position: relative;
             font-size: 75%;
             height: 675.528px;
-            width: 360px;
+            width: 120px;
         }
 
         img {
@@ -32,18 +41,33 @@
 
         }
 
-        #top-mid  {
+        #top-mid {
             width: 1170px;
             height: 50px;
             float: left;
             position: relative;
             text-align: center;
         }
-        li{
+
+        li {
             display: inline;
         }
-        #head{
+
+        head {
             display: inline;
+        }
+
+        .mid {
+            float: left;
+            border: 0cm;
+            margin: 0;
+            width: 590px;
+            height: 3889.250px;
+        }
+
+        .mid-center {
+            float: left;
+            text-align: center;
         }
     </style>
 </head>
@@ -51,10 +75,7 @@
 <body>
     <header>
         <div id="head">
-            FaceBook
-            <div>
-                <input type="text">
-            </div>  
+            FaceBook <input type="text">
         </div>
         <div id="top-mid">
             <li><a href="">Trang chủ</a></li>
@@ -91,9 +112,18 @@
             Kỷ niệm
         </div>
     </div>
-    <footer>
-        <p>&copy; 2014 FaceBook. All rights reserved.</p>
-    </footer>
+    <div>
+        <p class="mid-center ">Tại hiệu may Âu Hoá cũng như tại nhà cụ cố Hồng, người ta bàn ra tán vào rất nhiều về
+            việc ông Xuân Tóc
+            Ðỏ của chúng ta... ngẫu nhiên đã có hai phái tán thành và phản đối rất rõ rệt. Phái phản đối gồm có cậu
+            Tú Tân, bà vợ ông phán mọc sừng, do ông Typn làm lãnh tụ. Phái tán thành có ông phán mọc sừng, cô Tuyết,
+            bà vợ ông Típ Phờ Nờ, mấy cô khâu và gần tất cả mấy bác thợ may. Như vậy, chẳng cần phải nói, ai cũng
+            biết Xuân Tóc Ðỏ được đại đa số. Còn về phần cụ Hồng, cụ bà, cặp vợ chồng Văn Minh, thì ở vào trường hợp
+            có thể chê trách được là không có một thái độ rõ rệt. Những người ấy có thể xem mạnh bên nào thì ngã về
+            bên ấy, thế thôi. Ở vào một tình thế chưa phân hắc bạch, rõ ràng, thì những người ấy phân vân là phải.
+        </p>
+    </div>
+        <p id="p-end">&copy; 2014 FaceBook. All rights reserved.</p>
 </body>
 
 </html>

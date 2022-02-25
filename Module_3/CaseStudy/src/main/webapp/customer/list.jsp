@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/static/datatables/css/dataTables.bootstrap4.min.css">
 </head>
 <body>
-<a class="btn btn-success" href="/customer?action=create">Add new customer</a>
+<a class="btn btn-success" href="/customer?action=AddCustomer">Add new customer</a>
 <table id="product" class="table table-striped">
     <thead>
     <tr>
@@ -32,7 +32,7 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach var="customer" items="${requestScope.CustomerList}">
+    <c:forEach var="customer" items="${customerList}">
         <tr>
             <td >${customer.customerId}</td>
             <td >${customer.customerCode}</td>
@@ -45,7 +45,7 @@
             <td >${customer.customerAddress}</td>
             <td >${customer.customerTypeId}</td>
             <td>
-                <button class="btn btn-warning">Edit</button>
+                <a class="btn btn-warning" href="/customer?action=EditCustomer&customer_id=${customer.customerId}">Edit</a>
                 <button onclick="deleteCustomer('${customer.customerId}','${customer.customerName}')" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
                     Delete
                 </button>

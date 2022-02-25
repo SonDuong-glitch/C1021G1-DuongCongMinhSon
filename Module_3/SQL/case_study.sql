@@ -1,3 +1,4 @@
+create database case_study;
 USE case_study;
 -- tạo table
 CREATE TABLE vi_tri (
@@ -206,7 +207,7 @@ ON dich_vu.ma_loai_dich_vu = loai_dich_vu.ma_loai_dich_vu
 LEFT JOIN hop_dong
 ON hop_dong.ma_dich_vu = dich_vu.ma_dich_vu
 where hop_dong.ngay_lam_hop_dong not between "2021-01-01" and "2021-03-31"
-GROUP BY ten_dich_vu;
+GROUP BY ma_dich_vu;
 -- cau 7
 SELECT  dich_vu.ma_dich_vu, ten_dich_vu, dich_vu.dien_tich, dich_vu.so_nguoi_toi_da, dich_vu.chi_phi_thue, loai_dich_vu.ten_loai_dich_vu
 FROM dich_vu
@@ -361,3 +362,6 @@ drop table example_2;
 select nhan_vien.ma_nhan_vien, nhan_vien.ho_ten, nhan_vien.email, nhan_vien.so_dien_thoai, nhan_vien.ngay_sinh, nhan_vien.dia_chi from nhan_vien
 union 
 select khach_hang.ma_khach_hang, khach_hang.ho_ten, khach_hang.email, khach_hang.so_dien_thoai, khach_hang.ngay_sinh, khach_hang.dia_chi from khach_hang;
+
+
+
