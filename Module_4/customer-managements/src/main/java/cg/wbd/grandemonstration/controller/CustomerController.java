@@ -2,7 +2,6 @@ package cg.wbd.grandemonstration.controller;
 
 import cg.wbd.grandemonstration.model.Customer;
 import cg.wbd.grandemonstration.service.CustomerService;
-import com.sun.org.apache.xpath.internal.operations.Variable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +15,7 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
-    @GetMapping("/customers")
+    @GetMapping("/")
     public ModelAndView showList() {
         ModelAndView modelAndView = new ModelAndView("list");
         List<Customer> customers = customerService.findAll();

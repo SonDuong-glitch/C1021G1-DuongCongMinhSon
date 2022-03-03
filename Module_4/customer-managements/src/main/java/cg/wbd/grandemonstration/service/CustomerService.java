@@ -1,9 +1,9 @@
 package cg.wbd.grandemonstration.service;
 
 import cg.wbd.grandemonstration.model.Customer;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
 public interface CustomerService {
     List<Customer> findAll();
 

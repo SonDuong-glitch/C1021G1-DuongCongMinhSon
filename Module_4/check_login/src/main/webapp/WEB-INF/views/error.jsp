@@ -7,10 +7,12 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  $END$
-  </body>
+<head>
+    <title>Error</title>
+</head>
+<body>
+<h1>
+    LOGIN ERROR
+</h1>
+</body>
 </html>
