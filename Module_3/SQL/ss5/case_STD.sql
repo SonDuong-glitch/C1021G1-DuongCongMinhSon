@@ -1,3 +1,4 @@
+
 create database casestudy_jsp;
 use casestudy_jsp;
 
@@ -45,7 +46,7 @@ FROM
     division; 
     
 create table `user` (
-username varchar(255) primary key,
+username varchar(255) primary key ,
 `password` varchar(255) 
 );
 
@@ -71,7 +72,7 @@ role_name varchar(255)
 create table user_role (
 role_id int,
 username varchar(255),
-foreign key (role_id) references `role` (role_id)
+foreign key (role_id) references `role` (role_id) 
 );
 
 
@@ -143,6 +144,7 @@ FROM
 	customer_phone varchar(45) not null,
     customer_email VARCHAR(45),
     customer_address VARCHAR(45),
+    del_flg int DEFAULT 0,
     FOREIGN KEY (customer_type_id)
         REFERENCES customer_type (customer_type_id)
 );
@@ -293,10 +295,7 @@ VALUE (5,2,4),
 (1,1,3),
 (2,1,2),
 (2,12,2);
-SELECT 
-    *
-FROM
-    contract_detail;
+SELECT customer FROM contract_detail;
     
     
 
