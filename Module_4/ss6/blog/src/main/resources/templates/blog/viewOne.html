@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Select One</title>
 </head>
 <body>
-
+    <fieldset>
+        <legend>Blog information</legend>
+        <input type="hidden" name="id" th:value="${blog.id}">
+        <table>
+            <tr>
+                <td>Id</td>
+                <td th:value="${blog.id}"></td>
+            </tr>
+            <tr>
+                <td>Name of blog</td>
+                <td>
+                    <input type="text" name="name" th:value="${blog.nameOfBlog}">
+                </td>
+            </tr>
+            <tr>
+                <td>Content of blog</td>
+                <td>
+                    <input type="text" name="content" th:value="${blog.content}">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="button"><a th:href="@{/}">Back to List</a> </button>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
 </body>
 </html>
