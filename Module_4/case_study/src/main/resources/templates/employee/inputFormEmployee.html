@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: darkgreen;">
+    <a class="navbar-brand" href="#">Create Form Employee</a>
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId"
+            aria-expanded="false" aria-label="Toggle navigation"></button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{customer}">Home <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{showCreateForm}">Create New Employee </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div style="text-align: center ; margin-top: 10px"> <h1> Form Create Customer </h1></div>
+</div>
+<div class="container">
+    <form th:action="@{/createEmployee}" th:object="${employeeDto}" method="post">
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="nameEmployee">Name Employee</label>
+                    <input type="text"
+                           class="form-control" name="" id="nameEmployee" aria-describedby="helpId" placeholder="Input Name" th:field="*{employeeName}">
+                    <h6  style="color: red" th:if="${#fields.hasErrors('employeeName')}" th:errors="*{employeeName}"></h6>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="employeeBirthday">Customer Birthday</label>
+                    <input type="date"
+                           class="form-control" name="" id="employeeBirthday" aria-describedby="helpId" th:field="*{employeeBirthday}">
+                    <h6  style="color: red" th:if="${#fields.hasErrors('employeeBirthday')}" th:errors="*{employeeBirthday}"></h6>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="employeeIdCard">Employee ID Card</label>
+                    <input type="text"
+                           class="form-control" name="" id="employeeIdCard" aria-describedby="helpId" placeholder="Input Employee ID Card" th:field="*{employeeIdCard}">
+                    <h6  style="color: red" th:if="${#fields.hasErrors('employeeIdCard')}" th:errors="*{employeeIdCard}"></h6>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="employeePhone">Employee Phone</label>
+                    <input type="text"
+                           class="form-control" name="" id="employeePhone" aria-describedby="helpId" placeholder="Input Employee Phone" th:field="*{employeePhone}">
+                    <h6  style="color: red" th:if="${#fields.hasErrors('employeePhone')}" th:errors="*{employeePhone}"></h6>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="employeeEmail">Employee Email</label>
+                    <input type="email"
+                           class="form-control" name="" id="employeeEmail" aria-describedby="helpId" placeholder="Input Employee Email" th:field="*{employeeEmail}">
+                    <h6  style="color: red" th:if="${#fields.hasErrors('employeeEmail')}" th:errors="*{employeeEmail}"></h6>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="employeeSalary"> Employee Salary</label>
+                    <input type="text"
+                           class="form-control" name="" id="employeeSalary" aria-describedby="helpId" placeholder="Input Employee Salary" th:field="*{employeeSalary}">
+                    <h6  style="color: red" th:if="${#fields.hasErrors('employeeSalary')}" th:errors="*{employeeSalary}"></h6>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4" style="text-align: center">
+                <div class="form-group">
+                    <label for="degreeEmployee">Degree Education</label>
+                    <div>
+                        <select id="degreeEmployee" style="width: 100px; border-radius: 50px; text-align: center" th:field="*{employeeEducationDegree.idDegree}">
+                            <option th:each="education : ${educations}"  th:value="${education.idDegree}" th:text="${education.degreeEducation}" ></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4" style="text-align: center">
+                <div class="form-group">
+                    <label for="divisionEmployee">Division</label>
+                    <div>
+                        <select id="divisionEmployee" style="width: 100px; border-radius: 50px; text-align: center" th:field="*{employeeDivision.idDivision}">
+                            <option th:each="division : ${divisions}"  th:value="${division.idDivision}" th:text="${division.divisionType}" ></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4" style="text-align: center">
+                <div class="form-group">
+                    <label for="positionEmployee">Position</label>
+                    <div>
+                        <select id="positionEmployee" style="width: 100px; border-radius: 50px; text-align: center" th:field="*{employeePosition.idPosition}">
+                            <option th:each=" position: ${positions}"  th:value="${position.idPosition}" th:text="${position.positionName}" ></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container" style="text-align: center"> <input type="submit" value="Submit"></div>
+    </form>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+</body>
+</html>

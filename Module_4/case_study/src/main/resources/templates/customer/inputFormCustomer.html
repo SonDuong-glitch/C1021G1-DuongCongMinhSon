@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: darkgreen;">
+    <a class="navbar-brand" href="#">CreateCustomer</a>
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId"
+            aria-expanded="false" aria-label="Toggle navigation"></button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{customer}">Home <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{showCreateForm}">Create New Customer</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+<div class="container">
+    <div style="text-align: center ; margin-top: 10px"> <h1> Form Create Customer </h1></div>
+</div>
+<div class="container">
+    <form th:action="@{/createCustomer}" th:object="${customerDto}" method="post">
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="nameCustomer">Customer Name</label>
+                    <input type="text"
+                           class="form-control" name="" id="nameCustomer" aria-describedby="helpId" placeholder="Input Name" th:field="*{customerName}">
+                    <h6  style="color: red" th:if="${#fields.hasErrors('customerName')}" th:errors="*{customerName}"></h6>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="customerBirthday">Customer Birthday</label>
+                    <input type="date"
+                           class="form-control" name="" id="customerBirthday" aria-describedby="helpId" th:field="*{customerBirthday}">
+                    <h6  style="color: red" th:if="${#fields.hasErrors('customerBirthday')}" th:errors="*{customerBirthday}"></h6>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="customerGender">Giới tính</label>
+                    <div>
+                        <select id="customerGender" style="width: 100px; border-radius: 50px; text-align: center" th:field="*{customerGender}">
+                            <option value="true">Nam</option>
+                            <option value="false">Nữ</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="customerIdCard">Customer Id Card</label>
+                    <input type="text"
+                           class="form-control" name="" id="customerIdCard" aria-describedby="helpId" placeholder="Input Customer Id Card" th:field="*{customerIdCard}">
+                    <h6  style="color: red" th:if="${#fields.hasErrors('customerIdCard')}" th:errors="*{customerIdCard}"></h6>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="customerPhone">Customer Phone</label>
+                    <input type="text"
+                           class="form-control" name="" id="customerPhone" aria-describedby="helpId" placeholder="Input Customer Phone" th:field="*{customerPhone}">
+                    <h6  style="color: red" th:if="${#fields.hasErrors('customerPhone')}" th:errors="*{customerPhone}"></h6>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="emailCustomer">Input Email Customer</label>
+                    <input type="email"
+                           class="form-control" name="" id="emailCustomer" aria-describedby="helpId" placeholder="InputYourEmail" th:field="*{customerEmail}">
+                    <h6  style="color: red" th:if="${#fields.hasErrors('customerEmail')}" th:errors="*{customerEmail}"></h6>
+                </div>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="customerAddress">Customer Address</label>
+                        <input type="text"
+                               class="form-control" name="" id="customerAddress" aria-describedby="helpId" placeholder="Input customer Address" th:field="*{customerAddress}">
+                        <h6  style="color: red" th:if="${#fields.hasErrors('customerAddress')}" th:errors="*{customerAddress}"></h6>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="typeCustomer">Type Customer</label>
+                        <div>
+                            <select id="typeCustomer" style="width: 100px; border-radius: 50px; text-align: center" th:field="*{customerType.idType}">
+                                <option th:each="customer : ${customerType}"  th:value="${customer.idType}" th:text="${customer.customerType}" ></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="container" style="text-align: center"> <input type="submit" value="Submit"></div>
+    </form>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+</body>
+</html>
