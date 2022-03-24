@@ -99,8 +99,7 @@ public class EmployeeController {
         return "redirect:/showListEmployee";
     }
     @GetMapping("/deleteEmployee")
-    public String delete(RedirectAttributes redirectAttributes,@PathVariable Long id){
-        Employee employee = iEmployeeService.findById(id);
+    public String delete(RedirectAttributes redirectAttributes,Employee employee){
         iEmployeeService.remove(employee);
         redirectAttributes.addFlashAttribute("message","Xóa Thành Công");
         return "redirect:/showListEmployee";
