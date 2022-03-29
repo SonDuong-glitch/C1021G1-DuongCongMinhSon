@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <style>
+        body {
+            background-image: url('data:image/jpeg;base64,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');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: darkgreen;">
+    <a class="navbar-brand" href="#">Create Form Employee</a>
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId"
+            aria-expanded="false" aria-label="Toggle navigation"></button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{listService}">Home <span class="sr-only"></span></a>
+            </li>>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div style="text-align: center ; margin-top: 10px"> <h1> Form Create Service </h1></div>
+</div>
+<div class="container">
+    <form th:action="@{/createService}" th:object="${service}" method="post">
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="serviceName">Name Service</label>
+                    <input type="text"
+                           class="form-control" name="" id="serviceName" aria-describedby="helpId" placeholder="Input Name Service" th:field="*{serviceName}">
+                    <h6  style="color: red" th:if="${#fields.hasErrors('serviceName')}" th:errors="*{serviceName}"></h6>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="serviceArea">Service Area</label>
+                    <input type="text"
+                           class="form-control" name="" id="serviceArea" aria-describedby="helpId" placeholder="Input Service Area" th:field="*{serviceArea}">
+                    <h6  style="color: red" th:if="${#fields.hasErrors('serviceArea')}" th:errors="*{serviceArea}"></h6>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="serviceCost">Service Cost</label>
+                    <input type="text"
+                           class="form-control" name="" id="serviceCost" aria-describedby="helpId" placeholder="Input Service Cost" th:field="*{serviceCost}">
+                    <h6  style="color: red" th:if="${#fields.hasErrors('serviceCost')}" th:errors="*{serviceCost}"></h6>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="serviceMaxPeople">Service Max People</label>
+                    <input type="text"
+                           class="form-control" name="" id="serviceMaxPeople" aria-describedby="helpId" placeholder="Input Service Max People" th:field="*{serviceMaxPeople}">
+                    <h6  style="color: red" th:if="${#fields.hasErrors('serviceMaxPeople')}" th:errors="*{serviceMaxPeople}"></h6>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="standardRoom">Standard Room</label>
+                    <input type="text"
+                           class="form-control" name="" id="standardRoom" aria-describedby="helpId" placeholder="Input Employee Email" th:field="*{standardRoom}">
+                    <h6  style="color: red" th:if="${#fields.hasErrors('standardRoom')}" th:errors="*{standardRoom}"></h6>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="poolArea"> Pool Area</label>
+                    <input type="text"
+                           class="form-control" name="" id="poolArea" aria-describedby="helpId" placeholder="Input Pool Area" th:field="*{poolArea}">
+                    <h6  style="color: red" th:if="${#fields.hasErrors('poolArea')}" th:errors="*{poolArea}"></h6>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="poolArea"> Number Of floor </label>
+                    <input type="text"
+                           class="form-control" name="" id="numberOfFloor" aria-describedby="helpId" placeholder="Input Number Of floor" th:field="*{numberOfFloor}">
+                    <h6  style="color: red" th:if="${#fields.hasErrors('numberOfFloor')}" th:errors="*{numberOfFloor}"></h6>
+                </div>
+                </div>
+            </div>
+        <div class="container" style="text-align: center"> <input type="submit" value="Submit"></div>
+    </form>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+</body>
+</html>

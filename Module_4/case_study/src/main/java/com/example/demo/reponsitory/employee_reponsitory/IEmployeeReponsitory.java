@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IEmployeeReponsitory extends JpaRepository<Employee,Long> {
-    Page<Employee> findByEmployeeName(String name, Pageable pageable);
+    Page<Employee> findByEmployeeNameContaining(String nameEmployee, Pageable pageable);
 }

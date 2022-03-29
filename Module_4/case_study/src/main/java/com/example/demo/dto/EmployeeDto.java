@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 
 @Component
@@ -15,10 +16,16 @@ public class EmployeeDto implements Validator {
     private Long idEmployee;
     private String employeeName;
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @NotNull(message = "Ngày tháng năm sinh không được để trống")
     private LocalDate employeeBirthday;
+    @Pattern(regexp = "^(NV)[0-9]{4}$" , message = "Format không đúng VD : NV001 ")
     private String employeeIdCard;
+    @Pattern(regexp = "(84|0[3|5|7|8|9])+([0-9]{8})\\b", message = "Format Number is not true")
     private String employeePhone;
+    @Email
     private String employeeEmail;
+    @Min(value = 1000000,message = "nhỏ nhất là 1 triệu")
+    @Max(value = 50000000, message = "Lớn nhất là 50 triệu")
     private Long employeeSalary;
     private EmployeeEducationDegree employeeEducationDegree;
     private EmployeeDivision employeeDivision;

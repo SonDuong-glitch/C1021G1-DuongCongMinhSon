@@ -1,9 +1,6 @@
 package com.example.demo.controller.employee;
 
-import com.example.demo.dto.CustomerDto;
 import com.example.demo.dto.EmployeeDto;
-import com.example.demo.model.person.customer.Customer;
-import com.example.demo.model.person.customer.CustomerType;
 import com.example.demo.model.person.employee.Employee;
 import com.example.demo.model.person.employee.EmployeeDivision;
 import com.example.demo.model.person.employee.EmployeeEducationDegree;
@@ -16,14 +13,12 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
@@ -41,7 +36,7 @@ public class EmployeeController {
     @Autowired
     private IEducationService iEducationService;
     @GetMapping("/showListEmployee")
-    public String listAll(Model model, Pageable pageable){
+    public String listAll(Model model, @PageableDefault(size = 5) Pageable pageable){
         Page<Employee> employees = iEmployeeService.findAll(pageable);
         model.addAttribute("employees",employees);
         return "employee/listEmployee";
@@ -103,5 +98,11 @@ public class EmployeeController {
         iEmployeeService.remove(employee);
         redirectAttributes.addFlashAttribute("message","Xóa Thành Công");
         return "redirect:/showListEmployee";
+    }
+    @GetMapping("/search-employee")
+    public String searchEmployee(@PageableDefault(value = 5) Pageable pageable, @RequestParam String nameEmployee , Model model) {
+        Page<Employee> employees = iEmployeeService.findByName(nameEmployee, pageable);
+        model.addAttribute("employees", employees);
+        return "employee/listEmployee";
     }
 }
